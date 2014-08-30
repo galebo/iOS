@@ -11,8 +11,11 @@
 @interface MoreViewController : UITableViewController
 {
     NSArray* listData;
+    NSArray *controllers;
 }
-@property(nonatomic,retain)    NSArray *listData; 
+@property(nonatomic,retain)    NSArray *listData;
+
+@property (nonatomic, retain) NSArray *controllers;
 
 
 @end

@@ -14,7 +14,7 @@
 		9B4228EE19B1A0F700C1F582 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4228ED19B1A0F700C1F582 /* main.m */; };
 		9B4228F219B1A0F700C1F582 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4228F119B1A0F700C1F582 /* AppDelegate.m */; };
 		9B4228F519B1A0F700C1F582 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B4228F319B1A0F700C1F582 /* Main.storyboard */; };
-		9B4228F819B1A0F700C1F582 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4228F719B1A0F700C1F582 /* FirstViewController.m */; };
+		9B4228F819B1A0F700C1F582 /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4228F719B1A0F700C1F582 /* MoreViewController.m */; };
 		9B4228FB19B1A0F700C1F582 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4228FA19B1A0F700C1F582 /* SecondViewController.m */; };
 		9B4228FD19B1A0F700C1F582 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B4228FC19B1A0F700C1F582 /* Images.xcassets */; };
 		9B42290419B1A0F700C1F582 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B42290319B1A0F700C1F582 /* XCTest.framework */; };
@@ -22,6 +22,7 @@
 		9B42290619B1A0F700C1F582 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B4228E519B1A0F700C1F582 /* UIKit.framework */; };
 		9B42290E19B1A0F700C1F582 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9B42290C19B1A0F700C1F582 /* InfoPlist.strings */; };
 		9B42291019B1A0F700C1F582 /* baiduTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B42290F19B1A0F700C1F582 /* baiduTests.m */; };
+		9BC0F5C119B21A54002EBC63 /* More1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC0F5C019B21A54002EBC63 /* More1ViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,8 +47,8 @@
 		9B4228F019B1A0F700C1F582 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9B4228F119B1A0F700C1F582 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		9B4228F419B1A0F700C1F582 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		9B4228F619B1A0F700C1F582 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		9B4228F719B1A0F700C1F582 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		9B4228F619B1A0F700C1F582 /* MoreViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoreViewController.h; sourceTree = "<group>"; };
+		9B4228F719B1A0F700C1F582 /* MoreViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoreViewController.m; sourceTree = "<group>"; };
 		9B4228F919B1A0F700C1F582 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		9B4228FA19B1A0F700C1F582 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		9B4228FC19B1A0F700C1F582 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -56,6 +57,8 @@
 		9B42290B19B1A0F700C1F582 /* baiduTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "baiduTests-Info.plist"; sourceTree = "<group>"; };
 		9B42290D19B1A0F700C1F582 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9B42290F19B1A0F700C1F582 /* baiduTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = baiduTests.m; sourceTree = "<group>"; };
+		9BC0F5BF19B21A54002EBC63 /* More1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = More1ViewController.h; sourceTree = "<group>"; };
+		9BC0F5C019B21A54002EBC63 /* More1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = More1ViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,12 +121,14 @@
 				9B4228F019B1A0F700C1F582 /* AppDelegate.h */,
 				9B4228F119B1A0F700C1F582 /* AppDelegate.m */,
 				9B4228F319B1A0F700C1F582 /* Main.storyboard */,
-				9B4228F619B1A0F700C1F582 /* FirstViewController.h */,
-				9B4228F719B1A0F700C1F582 /* FirstViewController.m */,
+				9B4228F619B1A0F700C1F582 /* MoreViewController.h */,
+				9B4228F719B1A0F700C1F582 /* MoreViewController.m */,
 				9B4228F919B1A0F700C1F582 /* SecondViewController.h */,
 				9B4228FA19B1A0F700C1F582 /* SecondViewController.m */,
 				9B4228FC19B1A0F700C1F582 /* Images.xcassets */,
 				9B4228E819B1A0F700C1F582 /* Supporting Files */,
+				9BC0F5BF19B21A54002EBC63 /* More1ViewController.h */,
+				9BC0F5C019B21A54002EBC63 /* More1ViewController.m */,
 			);
 			path = baidu;
 			sourceTree = "<group>";
@@ -256,8 +261,9 @@
 			files = (
 				9B4228FB19B1A0F700C1F582 /* SecondViewController.m in Sources */,
 				9B4228F219B1A0F700C1F582 /* AppDelegate.m in Sources */,
-				9B4228F819B1A0F700C1F582 /* FirstViewController.m in Sources */,
+				9B4228F819B1A0F700C1F582 /* MoreViewController.m in Sources */,
 				9B4228EE19B1A0F700C1F582 /* main.m in Sources */,
+				9BC0F5C119B21A54002EBC63 /* More1ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,6 +468,7 @@
 				9B42291519B1A0F700C1F582 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9B42291619B1A0F700C1F582 /* Build configuration list for PBXNativeTarget "baiduTests" */ = {
 			isa = XCConfigurationList;
@@ -470,6 +477,7 @@
 				9B42291819B1A0F700C1F582 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
