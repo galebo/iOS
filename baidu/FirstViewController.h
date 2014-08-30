@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FirstViewController : UIViewController
+@interface FirstViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+{
+    NSArray* listData;
+    UITableView* tableView1;
+}
+@property(nonatomic,retain)    NSArray *listData;
+@property(retain)  IBOutlet UITableView* tableView1;
+
 
 @end
