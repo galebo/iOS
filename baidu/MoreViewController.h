@@ -8,9 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MoreViewController : UITableViewController
+@interface MoreViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 {
-
+    NSArray* listData;
+    NSArray *controllers;
 }
+@property(nonatomic,retain)    NSArray *listData;
+
+@property (nonatomic, retain) NSArray *controllers;
+
 
 @end
