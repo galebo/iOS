@@ -25,7 +25,7 @@
     self.listData = array;
     NSMutableArray *array2 = [[NSMutableArray alloc] init];
     //增加check控制器
-	More1ViewController *checkListController = [[More1ViewController alloc] init];
+	More1ViewController *checkListController = [[More1ViewController alloc] initWithNibName:@"About" bundle:nil];
 	
 	checkListController.title = @"Check One";
 	[array2 addObject:checkListController];
