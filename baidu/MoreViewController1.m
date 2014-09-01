@@ -18,6 +18,8 @@
 
 @synthesize listData;
 @synthesize controllers;
+@synthesize _uiTableView;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -40,20 +42,19 @@
     // Pass the selected object to the new view controller.
 }
 */
+
 - (void)viewDidLoad {
     
-    NSArray *array = [[NSArray alloc] initWithObjects:@"公告中心",@"手势密码",
-                      @"修改手势密码",@"帮助中心",@"客服热线",@"用户反馈", @"关于",nil];
+    NSArray *array = [[NSArray alloc] initWithObjects:@"公告中心",@"手势密码",@"修改手势密码",@"帮助中心",@"客服热线",@"用户反馈", @"关于",nil];
     self.listData = array;
     NSMutableArray *array2 = [[NSMutableArray alloc] init];
     //增加check控制器
 	SecondViewController *checkListController = [[SecondViewController alloc] init];
-	
-	checkListController.title = @"Check One";
 	[array2 addObject:checkListController];
-    
     controllers=array2;
-    
+
+    [self _setExtraCellLineHidden:_uiTableView];
+    [self.view setBackgroundColor:[UIColor colorWithRed:220/255.0 green:39/255.0 blue:25/255.0 alpha:1]];
     [super viewDidLoad];
 }
 - (void)didReceiveMemoryWarning
@@ -62,6 +63,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+-(void)_setExtraCellLineHidden: (UITableView *)tableView{
+    UIView *view = [UIView new];
+    view.backgroundColor = [UIColor clearColor];
+    [tableView setTableFooterView:view];
+}
+
+#pragma implement UITableViewDataSource start
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [listData count];
 }
@@ -85,11 +94,15 @@
     
     return cell;
 }
+#pragma implement UITableViewDataSource end
 
+
+
+#pragma implement UITableViewDelegate start
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
 	//NSInteger row = [indexPath row];
 	UIViewController *nextController = [self.controllers objectAtIndex:0];
 	[self.navigationController pushViewController:nextController animated:YES];
 }
+#pragma implement UITableViewDelegate end
 @end
