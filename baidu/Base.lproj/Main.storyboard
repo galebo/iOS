@@ -197,7 +197,6 @@ CA
                         <color key="backgroundColor" red="0.21102020681880529" green="0.9541501865793649" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="公告中心" id="OLc-N6-gWL"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3tL-db-CBM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -414,30 +413,23 @@ CA
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V4J-HZ-c3e">
-                                <rect key="frame" x="0.0" y="65" width="320" height="453"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="rUz-Wi-OAt">
+                                <rect key="frame" x="0.0" y="64" width="320" height="343"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="6dp-ef-NIj" id="PuM-fT-eim"/>
+                                    <outlet property="delegate" destination="6dp-ef-NIj" id="RbG-mP-iDo"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gig-aT-lwD">
+                                <rect key="frame" x="19" y="447" width="283" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="rUz-Wi-OAt">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="343"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <outlet property="dataSource" destination="6dp-ef-NIj" id="PuM-fT-eim"/>
-                                            <outlet property="delegate" destination="6dp-ef-NIj" id="RbG-mP-iDo"/>
-                                        </connections>
-                                    </tableView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gig-aT-lwD">
-                                        <rect key="frame" x="19" y="400" width="283" height="38"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="安全退出" backgroundImage="button">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </view>
+                                <state key="normal" title="安全退出" backgroundImage="button">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -450,7 +442,7 @@ CA
         <!--More View Controller - 更多-->
         <scene sceneID="8Zp-vB-Ib1">
             <objects>
-                <tableViewController id="VZa-Hs-Y1g" customClass="MoreViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="10001" id="VZa-Hs-Y1g" customClass="MoreViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="top" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="468" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="1Xh-4f-Hcb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -663,6 +655,6 @@ CA
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="71j-VY-Xsa"/>
-        <segue reference="Wo9-6a-dzK"/>
+        <segue reference="2xO-7Q-TQK"/>
     </inferredMetricsTieBreakers>
 </document>
