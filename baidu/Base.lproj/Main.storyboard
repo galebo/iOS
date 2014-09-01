@@ -13,7 +13,7 @@
                         <viewControllerLayoutGuide type="bottom" id="stI-4g-hlJ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="gMD-aP-Fq6">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ghk-R4-LAk">
@@ -54,6 +54,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="shW-w5-kvQ">
                                         <rect key="frame" x="19" y="389" width="283" height="38"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" red="0.91764712333679199" green="0.21960785984992981" blue="0.22352942824363708" alpha="1" colorSpace="deviceRGB"/>
                                         <state key="normal" title="我要赚钱" backgroundImage="button">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -86,6 +87,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="fGE-ID-WDY">
                                 <rect key="frame" x="124" y="20" width="72" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.91764712333679199" green="0.21960785984992981" blue="0.22352942824363708" alpha="1" colorSpace="deviceRGB"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="7日年化收益率" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Upm-EZ-jKX">
                                 <rect key="frame" x="20" y="331" width="112" height="21"/>
@@ -116,7 +118,7 @@
                         <viewControllerLayoutGuide type="bottom" id="SBt-zE-re0"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="YH1-Bl-IFI">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -135,7 +137,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Syp-Yu-BHK"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="lB5-t8-71A">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -173,6 +175,7 @@
                     <tabBarItem key="tabBarItem" title="更多" image="more" id="Luw-Zo-ccx"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="GfA-sE-NLt">
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="1" green="0.061310931110000001" blue="0.048369944239999997" alpha="0.01" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="6dp-ef-NIj" kind="relationship" relationship="rootViewController" id="a5t-tp-RIH"/>
@@ -190,12 +193,25 @@
                         <viewControllerLayoutGuide type="top" id="06z-1v-KNn"/>
                         <viewControllerLayoutGuide type="bottom" id="Imd-C7-ILa"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="c4J-R2-7C3">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="gonggao" id="c4J-R2-7C3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="rUz-Wi-OAt">
-                                <rect key="frame" x="0.0" y="64" width="320" height="343"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dER-mH-N7Y">
+                                <rect key="frame" x="0.0" y="65" width="320" height="500"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gig-aT-lwD">
+                                <rect key="frame" x="19" y="454" width="283" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="安全退出" backgroundImage="button">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="rUz-Wi-OAt">
+                                <rect key="frame" x="0.0" y="65" width="320" height="294"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -203,31 +219,18 @@
                                     <outlet property="delegate" destination="6dp-ef-NIj" id="RbG-mP-iDo"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gig-aT-lwD">
-                                <rect key="frame" x="19" y="451" width="283" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="安全退出" backgroundImage="button">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="gig-aT-lwD" firstAttribute="top" secondItem="rUz-Wi-OAt" secondAttribute="bottom" constant="40" id="DdS-lb-tuA"/>
-                            <constraint firstItem="rUz-Wi-OAt" firstAttribute="top" secondItem="06z-1v-KNn" secondAttribute="bottom" id="O7P-Cq-5EU"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="更多" id="1Jb-bi-irH"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ELn-iW-nk8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1067" y="-216"/>
+            <point key="canvasLocation" x="1060" y="-216"/>
         </scene>
         <!--More1 View Controller - 公告中心-->
         <scene sceneID="2Kp-eg-xuy">
             <objects>
-                <viewController id="E7c-iL-w2D" customClass="More1ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="10001" useStoryboardIdentifierAsRestorationIdentifier="YES" id="E7c-iL-w2D" customClass="More1ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="d9z-Tg-bOb"/>
                         <viewControllerLayoutGuide type="bottom" id="d9y-BQ-kDk"/>
