@@ -173,6 +173,7 @@
                     <tabBarItem key="tabBarItem" title="更多" image="more" id="Luw-Zo-ccx"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="GfA-sE-NLt">
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="1" green="0.061310931110000001" blue="0.048369944239999997" alpha="0.01" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <connections>
@@ -198,6 +199,17 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dER-mH-N7Y">
                                 <rect key="frame" x="0.0" y="65" width="320" height="500"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="rUz-Wi-OAt">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="343"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="6dp-ef-NIj" id="PuM-fT-eim"/>
+                                            <outlet property="delegate" destination="6dp-ef-NIj" id="RbG-mP-iDo"/>
+                                        </connections>
+                                    </tableView>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gig-aT-lwD">
@@ -208,15 +220,6 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="rUz-Wi-OAt">
-                                <rect key="frame" x="0.0" y="65" width="320" height="343"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="6dp-ef-NIj" id="PuM-fT-eim"/>
-                                    <outlet property="delegate" destination="6dp-ef-NIj" id="RbG-mP-iDo"/>
-                                </connections>
-                            </tableView>
                         </subviews>
                     </view>
                     <navigationItem key="navigationItem" title="更多" id="1Jb-bi-irH"/>
