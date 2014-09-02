@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--Second View Controller - 精品推荐-->
+        <!--View Controller Fav - 精品推荐-->
         <scene sceneID="ot8-2e-RuS">
             <objects>
-                <viewController title="精品推荐" id="QUy-BD-bpt" customClass="SecondViewController" sceneMemberID="viewController">
+                <viewController title="精品推荐" id="QUy-BD-bpt" customClass="ViewControllerFav" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FgS-U6-xeU"/>
                         <viewControllerLayoutGuide type="bottom" id="stI-4g-hlJ"/>
@@ -73,6 +73,11 @@
                                         <color key="textColor" red="1" green="0.085601729919999994" blue="0.2261126541" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EI6-jF-4Wn">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="144"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
@@ -102,6 +107,9 @@
                         </subviews>
                     </view>
                     <tabBarItem key="tabBarItem" title="精品推荐" image="fav" id="Z7h-1E-pvt"/>
+                    <connections>
+                        <outlet property="focusView" destination="EI6-jF-4Wn" id="MyU-xh-JEp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3qq-4t-Ow8" sceneMemberID="firstResponder"/>
             </objects>

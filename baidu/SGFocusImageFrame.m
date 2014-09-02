@@ -20,7 +20,7 @@
 - (void)switchFocusImageItems;
 @end
 
-static NSString *SG_FOCUS_ITEM_ASS_KEY = @"com.touchmob.sgfocusitems";
+//static NSString *SG_FOCUS_ITEM_ASS_KEY = @"com.touchmob.sgfocusitems";
 
 static CGFloat SWITCH_FOCUS_PICTURE_INTERVAL = 3.0; //switch interval time
 
@@ -57,11 +57,11 @@ static CGFloat SWITCH_FOCUS_PICTURE_INTERVAL = 3.0; //switch interval time
     return self;
 }
 
-- (void)dealloc
+/*- (void)dealloc
 {
-    //objc_setAssociatedObject(self, (const void *)SG_FOCUS_ITEM_ASS_KEY, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, (const void *)SG_FOCUS_ITEM_ASS_KEY, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 
-}
+}*/
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
@@ -72,8 +72,7 @@ static CGFloat SWITCH_FOCUS_PICTURE_INTERVAL = 3.0; //switch interval time
 */
 
 #pragma mark - private methods
-- (void)setupViews
-{
+- (void)setupViews{
     //NSArray *imageItems = objc_getAssociatedObject(self, (const void *)SG_FOCUS_ITEM_ASS_KEY);
     _scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
     
@@ -128,8 +127,7 @@ static CGFloat SWITCH_FOCUS_PICTURE_INTERVAL = 3.0; //switch interval time
     //objc_setAssociatedObject(self, (const void *)SG_FOCUS_ITEM_ASS_KEY, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (void)switchFocusImageItems
-{
+- (void)switchFocusImageItems{
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(switchFocusImageItems) object:nil];
     
     CGFloat targetX = _scrollView.contentOffset.x + _scrollView.frame.size.width;
@@ -138,9 +136,8 @@ static CGFloat SWITCH_FOCUS_PICTURE_INTERVAL = 3.0; //switch interval time
     [self performSelector:@selector(switchFocusImageItems) withObject:nil afterDelay:SWITCH_FOCUS_PICTURE_INTERVAL];
 }
 
-- (void)singleTapGestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
-{
-    NSLog(@"%s", __FUNCTION__);
+- (void)singleTapGestureRecognizer:(UIGestureRecognizer *)gestureRecognizer{
+    //NSLog(@"%s", __FUNCTION__);
   //  NSArray *imageItems = objc_getAssociatedObject(self, SG_FOCUS_ITEM_ASS_KEY);
     int page = (int)(_scrollView.contentOffset.x / _scrollView.frame.size.width);
     if (page > -1 && page < imageItems.count) {
@@ -152,9 +149,8 @@ static CGFloat SWITCH_FOCUS_PICTURE_INTERVAL = 3.0; //switch interval time
     //objc_setAssociatedObject(self, (const void *)SG_FOCUS_ITEM_ASS_KEY, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (void)moveToTargetPosition:(CGFloat)targetX
-{
-    NSLog(@"moveToTargetPosition : %f" , targetX);
+- (void)moveToTargetPosition:(CGFloat)targetX{
+    //NSLog(@"moveToTargetPosition : %f" , targetX);
     if (targetX >= _scrollView.contentSize.width) {
         targetX = 0.0;
     }
@@ -162,10 +158,11 @@ static CGFloat SWITCH_FOCUS_PICTURE_INTERVAL = 3.0; //switch interval time
     [_scrollView setContentOffset:CGPointMake(targetX, 0) animated:YES] ;
     _pageControl.currentPage = (int)(_scrollView.contentOffset.x / _scrollView.frame.size.width);
 }
+
+
 #pragma mark - UIScrollViewDelegate
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     _pageControl.currentPage = (int)(scrollView.contentOffset.x / scrollView.frame.size.width);
     
 }
