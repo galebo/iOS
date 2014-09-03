@@ -187,10 +187,10 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
+                        <segue destination="hd3-0S-Ih3" kind="relationship" relationship="viewControllers" id="QBq-o6-CHW"/>
                         <segue destination="OfK-Fj-y6b" kind="relationship" relationship="viewControllers" id="sN5-Dd-LG7"/>
                         <segue destination="oOH-oa-txd" kind="relationship" relationship="viewControllers" id="F5Z-7Z-25a"/>
                         <segue destination="hG5-f2-di4" kind="relationship" relationship="viewControllers" id="NpL-qS-seQ"/>
-                        <segue destination="hd3-0S-Ih3" kind="relationship" relationship="viewControllers" id="QBq-o6-CHW"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNP-y4-bzi" sceneMemberID="firstResponder"/>
@@ -215,7 +215,7 @@
             </objects>
             <point key="canvasLocation" x="565" y="-216"/>
         </scene>
-        <!--More View Controller1 - 更多-->
+        <!--More View Controller1-->
         <scene sceneID="6Ws-F5-KIw">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="6dp-ef-NIj" customClass="MoreViewController1" sceneMemberID="viewController">
@@ -253,7 +253,7 @@
                             </button>
                         </subviews>
                     </view>
-                    <navigationItem key="navigationItem" title="更多" id="1Jb-bi-irH"/>
+                    <navigationItem key="navigationItem" id="1Jb-bi-irH"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ELn-iW-nk8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
