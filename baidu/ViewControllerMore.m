@@ -58,9 +58,6 @@
     
     //[self.view setBackgroundColor:[UIColor colorWithRed:220/255.0 green:39/255.0 blue:25/255.0 alpha:1]];
    
-    
-    [self _initNav];
-
     [super viewDidLoad];
 }
 - (void)didReceiveMemoryWarning
@@ -75,14 +72,7 @@
     view.backgroundColor = [UIColor clearColor];
     [tableView setTableFooterView:view];
 }
-- (void)_initNav {
-    UILabel *customLab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 30)];
-    [customLab setTextColor:[UIColor whiteColor]];
-    [customLab setText:@"更多"];
-    [customLab setTextAlignment:NSTextAlignmentCenter];
-    customLab.font = [UIFont boldSystemFontOfSize:18];
-    self.navigationItem.titleView = customLab;
-}
+
 #pragma 内部方法 end
 
 #pragma implement UITableViewDataSource start
