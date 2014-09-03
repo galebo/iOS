@@ -288,10 +288,10 @@
             </objects>
             <point key="canvasLocation" x="565" y="-216"/>
         </scene>
-        <!--More View Controller1-->
+        <!--View Controller More-->
         <scene sceneID="6Ws-F5-KIw">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="6dp-ef-NIj" customClass="MoreViewController1" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="6dp-ef-NIj" customClass="ViewControllerMore" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="06z-1v-KNn"/>
                         <viewControllerLayoutGuide type="bottom" id="Imd-C7-ILa"/>
