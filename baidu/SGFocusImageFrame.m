@@ -168,7 +168,7 @@ static CGFloat SWITCH_FOCUS_PICTURE_INTERVAL = 3.0; //switch interval time
 }
 #pragma mark - UIButtonTouchEvent
 -(void)clickPageImage:(UIButton *)sender{
-    NSLog(@"click button tag is %d",sender.tag);
+    //NSLog(@"click button tag is %d",sender.tag);
 }
 
 @end
