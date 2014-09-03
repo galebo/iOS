@@ -29,6 +29,7 @@
 {
     [super viewDidLoad];
     [self setupViews];
+    [self initNav];
     //[self.view setBackgroundColor:[UIColor colorWithRed:220/255.0 green:39/255.0 blue:25/255.0 alpha:1]];
 	// Do any additional setup after loading the view, typically from a nib.
 }
@@ -44,9 +45,8 @@
     SGFocusImageItem *item1 = [[SGFocusImageItem alloc] initWithTitle:nil image:[UIImage imageNamed:@"banner1"] tag:0] ;
     SGFocusImageItem *item2 = [[SGFocusImageItem alloc] initWithTitle:nil image:[UIImage imageNamed:@"banner2"] tag:1] ;
     SGFocusImageItem *item3 = [[SGFocusImageItem alloc] initWithTitle:nil image:[UIImage imageNamed:@"banner3"] tag:2] ;
-    SGFocusImageItem *item4 = [[SGFocusImageItem alloc] initWithTitle:nil image:[UIImage imageNamed:@"banner4"] tag:4] ;
-    SGFocusImageFrame *imageFrame = [[SGFocusImageFrame alloc] initWithFrame:CGRectMake(0, 0, focusView.bounds.size.width,144.0)
-                                                                    delegate:self  focusImageItems:item1, item2, item3, item4, nil];
+    SGFocusImageFrame *imageFrame = [[SGFocusImageFrame alloc] initWithFrame:CGRectMake(0, 0, focusView.bounds.size.width,175.0)
+                                                                    delegate:self  focusImageItems:item1, item2, item3, nil];
     [focusView addSubview:imageFrame];
 
 }
@@ -57,4 +57,21 @@
     NSLog(@"%@ tapped", item.title);
 }
 
+- (void)initNav {
+    {
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 100.0f, 40.0f)];//初始化图片视图控件
+        imageView.contentMode = UIViewContentModeScaleAspectFit;//设置内容样式,通过保持长宽比缩放内容适应视图的大小,任何剩余的区域的视图的界限是透明的。
+        UIImage *image = [UIImage imageNamed:@"logo.png"];//初始化图像视图
+        [imageView setImage:image];
+        self.navigationItem.titleView = imageView;//设置导航栏的titleView为imageView
+    }
+    {
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 21.0f, 28.0f)];//初始化图片视图控件
+        imageView.contentMode = UIViewContentModeScaleAspectFit;//设置内容样式,通过保持长宽比缩放内容适应视图的大小,任何剩余的区域的视图的界限是透明的。
+        UIImage *image = [UIImage imageNamed:@"out.png"];//初始化图像视图
+        [imageView setImage:image];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:imageView];
+    }
+
+}
 @end
