@@ -117,6 +117,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	//NSInteger row = [indexPath row];
 	UIViewController *nextController = [self.controllers objectAtIndex:0];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 	[self.navigationController pushViewController:nextController animated:YES];
 }
 #pragma implement UITableViewDelegate end
