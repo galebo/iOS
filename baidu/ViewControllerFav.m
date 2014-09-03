@@ -7,6 +7,7 @@
 //
 
 #import "ViewControllerFav.h"
+#import "SecondViewController.h"
 
 @interface ViewControllerFav ()
 
@@ -66,12 +67,18 @@
         self.navigationItem.titleView = imageView;//设置导航栏的titleView为imageView
     }
     {
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 21.0f, 28.0f)];//初始化图片视图控件
-        imageView.contentMode = UIViewContentModeScaleAspectFit;//设置内容样式,通过保持长宽比缩放内容适应视图的大小,任何剩余的区域的视图的界限是透明的。
+        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 21.0f, 28.0f)];//初始化图片视图控件
+        btn.contentMode = UIViewContentModeScaleAspectFit;//设置内容样式,通过保持长宽比缩放内容适应视图的大小,任何剩余的区域的视图的界限是透明的。
         UIImage *image = [UIImage imageNamed:@"out.png"];//初始化图像视图
-        [imageView setImage:image];
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:imageView];
+        [btn setBackgroundImage:image forState:UIControlStateNormal];
+        
+        [btn addTarget:self action:@selector(btnPressed:) forControlEvents:UIControlEventTouchUpInside];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
     }
 
+}
+-(IBAction)btnPressed :(id)sender{
+    SecondViewController *checkListController = [[SecondViewController alloc] init];
+    [self.navigationController pushViewController:checkListController animated:YES];
 }
 @end
