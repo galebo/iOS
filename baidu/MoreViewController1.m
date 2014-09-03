@@ -47,6 +47,7 @@
     
     NSArray *array = [[NSArray alloc] initWithObjects:@"公告中心",@"手势密码",@"修改手势密码",@"帮助中心",@"客服热线",@"用户反馈", @"关于",nil];
     self.listData = array;
+    
     NSMutableArray *array2 = [[NSMutableArray alloc] init];
     //增加check控制器
 	SecondViewController *checkListController = [[SecondViewController alloc] init];
@@ -54,31 +55,35 @@
     controllers=array2;
 
     [self _setExtraCellLineHidden:_uiTableView];
-    [self.view setBackgroundColor:[UIColor colorWithRed:220/255.0 green:39/255.0 blue:25/255.0 alpha:1]];
-    [super viewDidLoad];
     
+    //[self.view setBackgroundColor:[UIColor colorWithRed:220/255.0 green:39/255.0 blue:25/255.0 alpha:1]];
+   
     
-    UILabel *customLab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 30)];
-    [customLab setTextColor:[UIColor whiteColor]];
-    [customLab setText:@"更多"];
-    [customLab setTextAlignment:NSTextAlignmentCenter];
-    customLab.font = [UIFont boldSystemFontOfSize:18];
-    self.navigationItem.titleView = customLab;
+    [self _initNav];
 
-    
+    [super viewDidLoad];
 }
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
+#pragma 内部方法 start
+//设置tableview多于行无分割线
 -(void)_setExtraCellLineHidden: (UITableView *)tableView{
     UIView *view = [UIView new];
     view.backgroundColor = [UIColor clearColor];
     [tableView setTableFooterView:view];
 }
+- (void)_initNav {
+    UILabel *customLab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 30)];
+    [customLab setTextColor:[UIColor whiteColor]];
+    [customLab setText:@"更多"];
+    [customLab setTextAlignment:NSTextAlignmentCenter];
+    customLab.font = [UIFont boldSystemFontOfSize:18];
+    self.navigationItem.titleView = customLab;
+}
+#pragma 内部方法 end
 
 #pragma implement UITableViewDataSource start
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
