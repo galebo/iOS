@@ -9,8 +9,25 @@
 #import "ViewControllerProduct.h"
 
 @interface ViewControllerProduct ()
-
+{
+    NSMutableArray* products;
+}
 @end
+
+@implementation Product
+    @synthesize name;
+    @synthesize desc;
+    @synthesize price;
+@end
+
+
+@implementation ProductCell
+    @synthesize nameLabel;
+    @synthesize descLabel;
+    @synthesize priceLabel;
+    @synthesize imageView;
+@end
+
 
 @implementation ViewControllerProduct
 
@@ -29,9 +46,31 @@
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
+    products = [NSMutableArray arrayWithCapacity:4];
     
+    Product *player = [[Product alloc] init];
+    player.name = @"百度利滚利版";
+    player.desc = @"一元起购，即买即到，随用随取";
+    player.price = @"4.654";
+    [products addObject:player];
+    player = [[Product alloc] init];
+    player.name = @"白赚";
+    player.desc = @"低风险，一元起购，随时买卖";
+    player.price = @"4.387";
+    [products addObject:player];
+    player = [[Product alloc] init];
+    player.name = @"百发";
+    player.desc = @"团结就有8%，理财周期30天";
+    player.price = @"7.859";
+    [products addObject:player];
+    player = [[Product alloc] init];
+    player.name = @"百度理财B";
+    player.desc = @"低风险，一元起购，随时买卖";
+    player.price = @"4.387";
+    [products addObject:player];
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -51,15 +90,20 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 4;
+    return products.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProductCell" forIndexPath:indexPath];
     
-    // Configure the cell...
+    ProductCell *cell = (ProductCell *)[tableView dequeueReusableCellWithIdentifier:@"ProductCell" forIndexPath:indexPath];
+    
+    Product *player = (products )[indexPath.row];
+    cell.nameLabel.text = player.name;
+    cell.descLabel.text = player.desc;
+    cell.priceLabel.text = player.price;
+    //cell.ratingImageView.image = [self imageForRating:player.rating];
     
     return cell;
 }

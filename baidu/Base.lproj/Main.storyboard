@@ -138,34 +138,34 @@
             </objects>
             <point key="canvasLocation" x="1060" y="475"/>
         </scene>
-        <!--View Controller Product - Root View Controller-->
+        <!--View Controller Product - 产品列表-->
         <scene sceneID="GUc-XN-Szl">
             <objects>
                 <tableViewController id="b05-Kj-or7" customClass="ViewControllerProduct" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Mhk-SR-6R3">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="94" sectionHeaderHeight="22" sectionFooterHeight="22" id="Mhk-SR-6R3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProductCell" rowHeight="90" id="2dm-qr-VHs">
-                                <rect key="frame" x="0.0" y="86" width="320" height="90"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProductCell" rowHeight="100" id="2dm-qr-VHs" customClass="ProductCell">
+                                <rect key="frame" x="0.0" y="86" width="320" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2dm-qr-VHs" id="ATY-nC-TIG">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="89"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="product" translatesAutoresizingMaskIntoConstraints="NO" id="AS9-4a-99L">
-                                            <rect key="frame" x="20" y="-5" width="82" height="82"/>
+                                            <rect key="frame" x="20" y="9" width="82" height="82"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="百度利滚利版" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hb4-2r-sAJ">
-                                            <rect key="frame" x="120" y="0.0" width="169" height="27"/>
+                                            <rect key="frame" x="120" y="9" width="169" height="27"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="一元起购，随到随买" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4nU-wi-yIE">
-                                            <rect key="frame" x="120" y="27" width="162" height="21"/>
+                                            <rect key="frame" x="120" y="38" width="162" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="tintColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -173,21 +173,21 @@
                                             <color key="highlightedColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="7日年化收益率" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZf-X3-ypS">
-                                            <rect key="frame" x="120" y="56" width="86" height="21"/>
+                                            <rect key="frame" x="120" y="63" width="86" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="4.901" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7M6-og-TnZ">
-                                            <rect key="frame" x="223" y="50" width="66" height="27"/>
+                                            <rect key="frame" x="223" y="57" width="66" height="27"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                             <color key="textColor" red="1" green="0.085601729919999994" blue="0.2261126541" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J5b-KV-icx">
-                                            <rect key="frame" x="278" y="55" width="42" height="21"/>
+                                            <rect key="frame" x="278" y="61" width="42" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <color key="textColor" red="1" green="0.085601729919999994" blue="0.2261126541" alpha="1" colorSpace="calibratedRGB"/>
@@ -195,6 +195,12 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="descLabel" destination="4nU-wi-yIE" id="bNB-A3-MvQ"/>
+                                    <outlet property="imageView" destination="AS9-4a-99L" id="g8G-TG-qP6"/>
+                                    <outlet property="nameLabel" destination="Hb4-2r-sAJ" id="4ej-5v-jcW"/>
+                                    <outlet property="priceLabel" destination="7M6-og-TnZ" id="4AB-0H-a0Y"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -202,7 +208,7 @@
                             <outlet property="delegate" destination="b05-Kj-or7" id="XHs-Vh-tMu"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="Iod-kv-Bno"/>
+                    <navigationItem key="navigationItem" title="产品列表" id="Iod-kv-Bno"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T4R-yJ-HAu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -212,7 +218,7 @@
         <scene sceneID="US5-Oe-Rja">
             <objects>
                 <navigationController definesPresentationContext="YES" id="KgX-ks-jap" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="产品列表" image="product" id="m4c-QZ-nXU"/>
+                    <tabBarItem key="tabBarItem" title="产品列表" image="pro" id="m4c-QZ-nXU"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Erx-Kz-7Q8">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -255,9 +261,9 @@
                     </tabBar>
                     <connections>
                         <segue destination="hd3-0S-Ih3" kind="relationship" relationship="viewControllers" id="QBq-o6-CHW"/>
+                        <segue destination="KgX-ks-jap" kind="relationship" relationship="viewControllers" id="ZRu-uv-zh0"/>
                         <segue destination="oOH-oa-txd" kind="relationship" relationship="viewControllers" id="F5Z-7Z-25a"/>
                         <segue destination="hG5-f2-di4" kind="relationship" relationship="viewControllers" id="NpL-qS-seQ"/>
-                        <segue destination="KgX-ks-jap" kind="relationship" relationship="viewControllers" id="ZRu-uv-zh0"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNP-y4-bzi" sceneMemberID="firstResponder"/>
@@ -364,6 +370,7 @@
         <image name="more" width="29" height="6"/>
         <image name="my" width="35" height="39"/>
         <image name="out" width="42" height="55"/>
+        <image name="pro" width="39" height="40"/>
         <image name="product" width="164" height="164"/>
         <image name="spliter" width="568" height="6"/>
     </resources>
