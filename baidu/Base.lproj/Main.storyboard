@@ -237,6 +237,7 @@
                     <tabBarItem key="tabBarItem" title="我的理财" image="my" id="2d8-pQ-2w9" colorLabel="IBBuiltInLabel-Red"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="GLc-VZ-HF5">
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </navigationBar>
                     <connections>
                         <segue destination="wLA-qB-FgC" kind="relationship" relationship="rootViewController" id="0JB-ip-ges"/>
@@ -246,7 +247,7 @@
             </objects>
             <point key="canvasLocation" x="581" y="1907"/>
         </scene>
-        <!--View Controller My-->
+        <!--View Controller My - 我的理财-->
         <scene sceneID="Kuc-c7-5dj">
             <objects>
                 <viewController id="wLA-qB-FgC" customClass="ViewControllerMy" sceneMemberID="viewController">
@@ -257,9 +258,40 @@
                     <view key="view" contentMode="scaleToFill" id="3Zs-oP-c1p">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mytop" translatesAutoresizingMaskIntoConstraints="NO" id="lQh-8a-hdk">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="98"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6LE-i3-5Ri">
+                                <rect key="frame" x="0.0" y="98" width="160" height="71"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="mybuttonleft">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="E7c-iL-w2D" kind="push" id="Drs-o3-v6i"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hts-pN-wlg">
+                                <rect key="frame" x="160" y="98" width="160" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="mybuttonright">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="E7c-iL-w2D" kind="push" id="JBO-Q5-0xf"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="jvI-kq-8Ms">
+                                <rect key="frame" x="0.0" y="170" width="320" height="349"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="mPL-aZ-OIW"/>
+                    <navigationItem key="navigationItem" title="我的理财" id="mPL-aZ-OIW"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6bS-8L-I9H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -278,8 +310,8 @@
                     <connections>
                         <segue destination="hd3-0S-Ih3" kind="relationship" relationship="viewControllers" id="QBq-o6-CHW"/>
                         <segue destination="KgX-ks-jap" kind="relationship" relationship="viewControllers" id="ZRu-uv-zh0"/>
-                        <segue destination="hG5-f2-di4" kind="relationship" relationship="viewControllers" id="NpL-qS-seQ"/>
                         <segue destination="as8-6s-d7G" kind="relationship" relationship="viewControllers" id="AXa-tV-4at"/>
+                        <segue destination="hG5-f2-di4" kind="relationship" relationship="viewControllers" id="NpL-qS-seQ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNP-y4-bzi" sceneMemberID="firstResponder"/>
@@ -321,7 +353,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="rUz-Wi-OAt">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="343"/>
+                                        <rect key="frame" x="0.0" y="0" width="320" height="343"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
@@ -329,17 +361,20 @@
                                             <outlet property="delegate" destination="6dp-ef-NIj" id="RbG-mP-iDo"/>
                                         </connections>
                                     </tableView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gig-aT-lwD">
+                                        <rect key="frame" x="19" y="389" width="283" height="38"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="安全退出" backgroundImage="button">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="E7c-iL-w2D" kind="push" id="dp4-VZ-j43"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gig-aT-lwD">
-                                <rect key="frame" x="19" y="454" width="283" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="安全退出" backgroundImage="button">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                         </subviews>
                     </view>
                     <navigationItem key="navigationItem" title="更多" id="1Jb-bi-irH"/>
@@ -348,10 +383,10 @@
             </objects>
             <point key="canvasLocation" x="1060" y="-216"/>
         </scene>
-        <!--More1 View Controller - 公告中心-->
+        <!--Second View Controller - 公告中心-->
         <scene sceneID="2Kp-eg-xuy">
             <objects>
-                <viewController storyboardIdentifier="10001" useStoryboardIdentifierAsRestorationIdentifier="YES" id="E7c-iL-w2D" customClass="More1ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="10001" useStoryboardIdentifierAsRestorationIdentifier="YES" id="E7c-iL-w2D" customClass="SecondViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="d9z-Tg-bOb"/>
                         <viewControllerLayoutGuide type="bottom" id="d9y-BQ-kDk"/>
@@ -364,7 +399,7 @@
                                 <rect key="frame" x="137" y="255" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button">
-                                    <color key="titleColor" red="0.29496466510000002" green="0.1894805389" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
@@ -376,7 +411,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fPE-Ob-I7g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1627" y="-208"/>
+            <point key="canvasLocation" x="2155" y="756"/>
         </scene>
     </scenes>
     <resources>
@@ -385,6 +420,9 @@
         <image name="logo" width="130" height="46"/>
         <image name="more" width="29" height="6"/>
         <image name="my" width="35" height="39"/>
+        <image name="mybuttonleft" width="159" height="71"/>
+        <image name="mybuttonright" width="160" height="72"/>
+        <image name="mytop" width="320" height="128"/>
         <image name="out" width="42" height="55"/>
         <image name="pro" width="39" height="40"/>
         <image name="product" width="164" height="164"/>
@@ -395,4 +433,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="dp4-VZ-j43"/>
+    </inferredMetricsTieBreakers>
 </document>
