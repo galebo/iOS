@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface SecondViewController : UIViewController
+#import "YYLockView.h"
+@interface SecondViewController : UIViewController<YYLockViewDelegate>
 
 @end
