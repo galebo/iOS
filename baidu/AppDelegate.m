@@ -13,11 +13,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    [[UITabBar appearance] setTintColor:[UIColor colorWithRed:233.0/255.0 green:1.0/255.0 blue:2.0/255.0 alpha:1.0]];
+    UIColor* commonColor=[UIColor colorWithRed:233.0/255.0 green:1.0/255.0 blue:2.0/255.0 alpha:1.0];
+    UIColor* fontColor=[UIColor whiteColor];
+    [[UITabBar appearance] setTintColor:commonColor];
     
-    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:233.0/255.0 green:1.0/255.0 blue:1.0/255.0 alpha:1.0]];   
-    [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName]];
-    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setBarTintColor:commonColor];
+    [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObject:fontColor forKey:NSForegroundColorAttributeName]];
+    [[UINavigationBar appearance] setTintColor:fontColor];
     return YES;
 }
 							
