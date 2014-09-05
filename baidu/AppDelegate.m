@@ -14,10 +14,10 @@
 {
     // Override point for customization after application launch.
     [[UITabBar appearance] setTintColor:[UIColor colorWithRed:233.0/255.0 green:1.0/255.0 blue:2.0/255.0 alpha:1.0]];
-    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:233.0/255.0 green:1.0/255.0 blue:1.0/255.0 alpha:1.0]];
     
-    [[UINavigationBar appearance] setTitleTextAttributes:
-     [NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName]];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:233.0/255.0 green:1.0/255.0 blue:1.0/255.0 alpha:1.0]];   
+    [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName]];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     return YES;
 }
 							
