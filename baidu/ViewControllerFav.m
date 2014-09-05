@@ -55,7 +55,16 @@
 #pragma mark -
 - (void)foucusImageFrame:(SGFocusImageFrame *)imageFrame didSelectItem:(SGFocusImageItem *)item
 {
-    NSLog(@"%@ tapped", item.title);
+    if(item.tag==0){
+        NSURL *url = [NSURL URLWithString:@"http://google.com"];
+        [[UIApplication sharedApplication] openURL:url];
+    }else if(item.tag==1){
+        NSURL *url=[NSURL URLWithString:@"tel://555-1234"];
+        [[UIApplication sharedApplication] openURL:url];
+    }else{
+        NSURL *url = [NSURL URLWithString:@"http://maps.google.com/maps?q=pizza"];
+        [[UIApplication sharedApplication] openURL:url];
+    }
 }
 
 - (void)initNav {
