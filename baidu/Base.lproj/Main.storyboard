@@ -76,7 +76,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="iDA-UO-IEi" kind="modal" id="owr-nO-TIh"/>
+                                            <segue destination="E7c-iL-w2D" kind="push" id="QfF-tS-xe0"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="％" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RgB-fG-C3R">
@@ -168,7 +168,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="一元起购，随到随买" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4nU-wi-yIE">
-                                            <rect key="frame" x="120" y="38" width="162" height="21"/>
+                                            <rect key="frame" x="120" y="39" width="162" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="tintColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -203,6 +203,7 @@
                                     <outlet property="imageView" destination="AS9-4a-99L" id="g8G-TG-qP6"/>
                                     <outlet property="nameLabel" destination="Hb4-2r-sAJ" id="4ej-5v-jcW"/>
                                     <outlet property="priceLabel" destination="7M6-og-TnZ" id="4AB-0H-a0Y"/>
+                                    <segue destination="iDA-UO-IEi" kind="push" id="jHO-hH-MpC"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -211,7 +212,9 @@
                             <outlet property="delegate" destination="b05-Kj-or7" id="XHs-Vh-tMu"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="产品列表" id="Iod-kv-Bno"/>
+                    <navigationItem key="navigationItem" title="产品列表" id="Iod-kv-Bno">
+                        <barButtonItem key="backBarButtonItem" title=" " id="xxR-7k-SLt"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T4R-yJ-HAu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -374,7 +377,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="E7c-iL-w2D" kind="push" id="dp4-VZ-j43"/>
+                                            <segue destination="E7c-iL-w2D" kind="push" id="kPs-u2-vWJ"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -388,7 +391,7 @@
             </objects>
             <point key="canvasLocation" x="1060" y="-216"/>
         </scene>
-        <!--View Controller2 Pro-->
+        <!--View Controller2 Pro - Title-->
         <scene sceneID="GvJ-25-cEa">
             <objects>
                 <viewController id="iDA-UO-IEi" customClass="ViewController2Pro" sceneMemberID="viewController">
@@ -401,10 +404,11 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="vTN-ym-Vax"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dpP-dW-w73" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2132" y="25"/>
+            <point key="canvasLocation" x="1723" y="1182"/>
         </scene>
         <!--View Controller2 Lock - 公告中心-->
         <scene sceneID="2Kp-eg-xuy">
@@ -445,7 +449,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fPE-Ob-I7g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2155" y="756"/>
+            <point key="canvasLocation" x="1734" y="-216"/>
         </scene>
     </scenes>
     <resources>
@@ -468,6 +472,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="dp4-VZ-j43"/>
+        <segue reference="kPs-u2-vWJ"/>
     </inferredMetricsTieBreakers>
 </document>
