@@ -33,6 +33,7 @@
     [super viewDidLoad];
     AppDelegate *app = [[UIApplication sharedApplication]delegate];
     products=app.products;
+    self.hidesBottomBarWhenPushed=YES;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
    
@@ -66,7 +67,7 @@
 {
     
     ProductCell *cell = (ProductCell *)[tableView dequeueReusableCellWithIdentifier:@"ProductCell" forIndexPath:indexPath];
-    [cell init:(products )[indexPath.row]];
+    [cell initWithProduct:(products )[indexPath.row]];
     
     return cell;
 }

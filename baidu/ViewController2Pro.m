@@ -11,7 +11,9 @@
 #import "AppDelegate.h"
 
 @interface ViewController2Pro ()
-
+{
+    NSMutableArray* products;
+}
 @end
 
 
@@ -58,19 +60,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    AppDelegate *app = [[UIApplication sharedApplication]delegate];
+    products=app.products;
+    
     
     //创建可滑动视图
     self.scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 64, 320, 460)];
-    //创建页点
-    self.pageControl = [[UIPageControl alloc]initWithFrame:CGRectMake(0, 420, 320, 36)];
-    
-    [self.pageControl  setBackgroundColor:[UIColor clearColor]];
-    [self.pageControl  setAlpha:1];
+//    //创建页点
+//    self.pageControl = [[UIPageControl alloc]initWithFrame:CGRectMake(0, 420, 320, 36)];
+//    
+//    [self.pageControl  setBackgroundColor:[UIColor clearColor]];
+//    [self.pageControl  setAlpha:1];
     //初始化数组,将图片压入数组
     
     //将滚动视图和翻页视图添加到视图中
     [self.view addSubview:self.scrollView];
-    [self.view addSubview:self.pageControl];
+//    [self.view addSubview:self.pageControl];
     self.view.backgroundColor = [UIColor whiteColor];
     [self createsCrollView:nil];
 }
@@ -95,11 +100,10 @@
     NSUInteger page = 0;//为了记录页数
     int originX = 0;
     //填充滑动视图内容
-    AppDelegate *app = [[UIApplication sharedApplication]delegate];
-    for (int i=0;i<app.products.count;i++) {
-        Product* product=[app.products objectAtIndex:i];
+    for (int i=0;i<products.count;i++) {
+        Product* product=[products objectAtIndex:i];
         ProductCell * cell=[[[NSBundle mainBundle]loadNibNamed:@"ViewPro" owner:nil options:nil]firstObject];
-        [cell init:product];
+        [cell initWithProduct:product];
         //添加到视图中
         [self.scrollView addSubview:cell];
         cell.frame=CGRectMake(originX, 0, cell.frame.size.width, cell.frame.size.width);
@@ -112,12 +116,12 @@
     
     //设置总页数
     
-    self.pageControl.numberOfPages = page;
-    //设置默认页为首页
-    self.pageControl.currentPage = 0;
-    self.pageControl.tag = 100;
-    //为页数控制关联方法
-    [self.pageControl addTarget:self action:@selector(_changePage:) forControlEvents:UIControlEventValueChanged];
+//    self.pageControl.numberOfPages = page;
+//    //设置默认页为首页
+//    self.pageControl.currentPage = 0;
+//    self.pageControl.tag = 100;
+//    //为页数控制关联方法
+//    [self.pageControl addTarget:self action:@selector(_changePage:) forControlEvents:UIControlEventValueChanged];
     //显示适当区域
     [self.scrollView setContentSize:CGSizeMake(originX, self.scrollView.frame.size.height)];
 }
@@ -146,6 +150,7 @@
     //利用当前视图显示区域到view.frame的偏移量，来换算获取当前处在第几页
     int page = ((self.scrollView.contentOffset.x - orginX))/orginX +1;
     //当前页改为这一页。
-    self.pageControl.currentPage = page;
+//    self.pageControl.currentPage = page;
+    self.navigationItem.title=((Product* )[products objectAtIndex:page]).name;
 }
 @end

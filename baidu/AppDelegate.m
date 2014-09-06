@@ -27,7 +27,7 @@
 @synthesize beiLabel;
 @synthesize imageView;
 
--(void) init:(Product*) product{
+-(void) initWithProduct:(Product*) product{
     self.nameLabel.text = product.name;
     self.descLabel.text = product.desc;
     self.priceLabel.text = product.price;

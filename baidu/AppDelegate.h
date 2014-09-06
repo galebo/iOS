@@ -36,6 +36,6 @@
 @property (nonatomic, weak) IBOutlet UILabel *beiLabel;
 @property (nonatomic, weak) IBOutlet UIImageView *imageView;
 
--(void) init:(Product*)product;
+-(void) initWithProduct:(Product*)product;
 
 @end

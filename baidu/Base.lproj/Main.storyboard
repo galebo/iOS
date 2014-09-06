@@ -405,6 +405,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="vTN-ym-Vax"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dpP-dW-w73" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
