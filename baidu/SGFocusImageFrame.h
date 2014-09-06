@@ -13,7 +13,6 @@
 #pragma mark - SGFocusImageFrameDelegate
 @protocol SGFocusImageFrameDelegate <NSObject>
     - (void)foucusImageFrame:(SGFocusImageFrame *)imageFrame didSelectItem:(SGFocusImageItem *)item;
-
 @end
 
 
@@ -25,5 +24,6 @@
 
     - (id)initWithFrame:(CGRect)frame delegate:(id<SGFocusImageFrameDelegate>)delegate focusImageItems:(SGFocusImageItem *)items, ... NS_REQUIRES_NIL_TERMINATION;
     - (void)clickPageImage:(UIButton *)sender;
+
 @end
 
