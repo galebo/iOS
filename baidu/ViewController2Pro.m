@@ -8,6 +8,8 @@
 
 #import "ViewController2Pro.h"
 
+#import "AppDelegate.h"
+
 @interface ViewController2Pro ()
 
 @end
@@ -65,11 +67,6 @@
     [self.pageControl  setBackgroundColor:[UIColor clearColor]];
     [self.pageControl  setAlpha:1];
     //初始化数组,将图片压入数组
-    self.imageArray = [NSMutableArray arrayWithObjects:
-                       [UIImage imageNamed:@"product.png"],
-                       [UIImage imageNamed:@"pro.png"],
-                       [UIImage imageNamed:@"product.png"],
-                       [UIImage imageNamed:@"button.png"], nil];
     
     //将滚动视图和翻页视图添加到视图中
     [self.view addSubview:self.scrollView];
@@ -98,11 +95,11 @@
     NSUInteger page = 0;//为了记录页数
     int originX = 0;
     //填充滑动视图内容
-    
-    for (UIImage *image in self.imageArray) {
-        ViewPro* cell=[[[NSBundle mainBundle]loadNibNamed:@"ViewPro" owner:nil options:nil]firstObject];
-        NSLog(@"创建了一个cell");
-        cell.img.image=image;
+    AppDelegate *app = [[UIApplication sharedApplication]delegate];
+    for (int i=0;i<app.products.count;i++) {
+        Product* product=[app.products objectAtIndex:i];
+        ProductCell * cell=[[[NSBundle mainBundle]loadNibNamed:@"ViewPro" owner:nil options:nil]firstObject];
+        [cell init:product];
         //添加到视图中
         [self.scrollView addSubview:cell];
         cell.frame=CGRectMake(originX, 0, cell.frame.size.width, cell.frame.size.width);
