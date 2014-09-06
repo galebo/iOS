@@ -17,16 +17,6 @@
 @end
 
 
-@implementation ViewPro
-//可滚动页面
-@synthesize img;
-@synthesize name;
-@synthesize desc;
-@synthesize price;
-@synthesize bei;
-@end
-
-
 @implementation ViewController2Pro
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -66,16 +56,9 @@
     
     //创建可滑动视图
     self.scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 64, 320, 460)];
-//    //创建页点
-//    self.pageControl = [[UIPageControl alloc]initWithFrame:CGRectMake(0, 420, 320, 36)];
-//    
-//    [self.pageControl  setBackgroundColor:[UIColor clearColor]];
-//    [self.pageControl  setAlpha:1];
-    //初始化数组,将图片压入数组
     
     //将滚动视图和翻页视图添加到视图中
     [self.view addSubview:self.scrollView];
-//    [self.view addSubview:self.pageControl];
     self.view.backgroundColor = [UIColor whiteColor];
     [self createsCrollView:nil];
 }
@@ -101,12 +84,12 @@
     int originX = 0;
     //填充滑动视图内容
     for (int i=0;i<products.count;i++) {
-        Product* product=[products objectAtIndex:i];
         ProductCell * cell=[[[NSBundle mainBundle]loadNibNamed:@"ViewPro" owner:nil options:nil]firstObject];
-        [cell initWithProduct:product];
+        [cell initWithProduct:[products objectAtIndex:i]];
+        cell.frame=CGRectMake(originX, 0, cell.frame.size.width, cell.frame.size.width);
+        
         //添加到视图中
         [self.scrollView addSubview:cell];
-        cell.frame=CGRectMake(originX, 0, cell.frame.size.width, cell.frame.size.width);
         
         //确定下张图片开始的x坐标
         originX += self.scrollView.frame.size.width;
@@ -114,33 +97,12 @@
         page++;
     }
     
-    //设置总页数
-    
-//    self.pageControl.numberOfPages = page;
-//    //设置默认页为首页
-//    self.pageControl.currentPage = 0;
-//    self.pageControl.tag = 100;
-//    //为页数控制关联方法
-//    [self.pageControl addTarget:self action:@selector(_changePage:) forControlEvents:UIControlEventValueChanged];
     //显示适当区域
     [self.scrollView setContentSize:CGSizeMake(originX, self.scrollView.frame.size.height)];
+    [self scrollViewDidEndDecelerating:self.scrollView];
 }
 
 
-//点击小点切换页面
-
-- (void)_changePage:(id)sender
-{
-    //创建一个区域
-    CGRect rect;
-    rect.origin.x = self.pageControl.currentPage * self.scrollView.frame.size.width;
-    rect.origin.y = 0;
-    rect.size.width = self.scrollView.frame.size.width;
-    rect.size.height = self.scrollView.frame.size.height;
-    //设置滚动视图的可视区域
-    [self.scrollView scrollRectToVisible:rect animated:YES];
-    
-}
 //重写滑动结束后的反应，就是把pageConteol的当前页跟随滑动而动
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
@@ -150,7 +112,6 @@
     //利用当前视图显示区域到view.frame的偏移量，来换算获取当前处在第几页
     int page = ((self.scrollView.contentOffset.x - orginX))/orginX +1;
     //当前页改为这一页。
-//    self.pageControl.currentPage = page;
     self.navigationItem.title=((Product* )[products objectAtIndex:page]).name;
 }
 @end
