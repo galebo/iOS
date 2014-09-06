@@ -76,7 +76,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="E7c-iL-w2D" kind="push" id="VhV-0f-mud"/>
+                                            <segue destination="iDA-UO-IEi" kind="modal" id="owr-nO-TIh"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="％" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RgB-fG-C3R">
@@ -388,10 +388,28 @@
             </objects>
             <point key="canvasLocation" x="1060" y="-216"/>
         </scene>
-        <!--Second View Controller - 公告中心-->
+        <!--View Controller2 Pro-->
+        <scene sceneID="GvJ-25-cEa">
+            <objects>
+                <viewController id="iDA-UO-IEi" customClass="ViewController2Pro" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ldw-yM-Fqa"/>
+                        <viewControllerLayoutGuide type="bottom" id="kqQ-cX-ens"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lHa-GG-kfg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dpP-dW-w73" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2132" y="25"/>
+        </scene>
+        <!--View Controller2 Lock - 公告中心-->
         <scene sceneID="2Kp-eg-xuy">
             <objects>
-                <viewController storyboardIdentifier="10001" useStoryboardIdentifierAsRestorationIdentifier="YES" id="E7c-iL-w2D" customClass="SecondViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="10001" useStoryboardIdentifierAsRestorationIdentifier="YES" id="E7c-iL-w2D" customClass="ViewController2Lock" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="d9z-Tg-bOb"/>
                         <viewControllerLayoutGuide type="bottom" id="d9y-BQ-kDk"/>
@@ -400,26 +418,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="anA-Qn-l43">
-                                <rect key="frame" x="137" y="96" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6oV-Wb-6h6" customClass="YYLockView">
                                 <rect key="frame" x="0.0" y="156" width="320" height="320"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.91764712329999998" green="0.2196078598" blue="0.22352942819999999" alpha="1" colorSpace="deviceRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="E7c-iL-w2D" id="EfZ-dB-Wvg"/>
+                                </connections>
                             </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="绘制解锁图案" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dku-T4-0Ak">
+                                <rect key="frame" x="82" y="121" width="156" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.91764712329999998" green="0.2196078598" blue="0.22352942819999999" alpha="1" colorSpace="deviceRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="公告中心" id="sMp-RQ-L4g">
                         <barButtonItem key="backBarButtonItem" title=" " id="DTL-cN-OLm"/>
                     </navigationItem>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="msg" destination="Dku-T4-0Ak" id="LVM-j9-U8g"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fPE-Ob-I7g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

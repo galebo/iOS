@@ -129,10 +129,10 @@
     }
     
     //重置按钮的状态
-    //    for (UIButton *btn in self.buttons) {
-    //        btn.selected=NO;
+        for (UIButton *btn in self.buttons) {
+            btn.selected=NO;
     ////        [btn setSelected:NO];
-    //    }
+        }
     
     //调用该方法，它就会让数组中的每一个元素都调用setSelected:方法，并给每一个元素传递一个NO参数
     [self.buttons makeObjectsPerformSelector:@selector(setSelected:) withObject:@(NO)];
