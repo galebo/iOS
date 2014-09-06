@@ -75,7 +75,7 @@
     player.price = @"4.387";
     player.price10000 = @"6";
     player.bei = @"35";
-    player.image=@"product.png";
+    player.image=@"button.png";
     [products addObject:player];
     player = [[Product alloc] init];
     player.name = @"百发";
@@ -91,7 +91,7 @@
     player.price = @"4.387";
     player.price10000 = @"8";
     player.bei = @"37";
-    player.image=@"product.png";
+    player.image=@"button.png";
     [products addObject:player];
     return YES;
 }
