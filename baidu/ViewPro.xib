@@ -7,7 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="ygl-bn-3hP" customClass="ViewPro">
+        <view contentMode="scaleToFill" id="ygl-bn-3hP" customClass="ProductCell">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
@@ -16,20 +16,20 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lC0-09-Mn2">
-                    <rect key="frame" x="27" y="180" width="94" height="28"/>
+                    <rect key="frame" x="27" y="180" width="273" height="28"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="23"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="desc" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RE3-zD-reC">
-                    <rect key="frame" x="59" y="216" width="42" height="21"/>
+                    <rect key="frame" x="59" y="216" width="241" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="7日年化收益率（％）" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ny-iO-ktI">
-                    <rect key="frame" x="30" y="264" width="124" height="21"/>
+                    <rect key="frame" x="30" y="264" width="136" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <nil key="highlightedColor"/>
@@ -73,11 +73,11 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
             <connections>
-                <outlet property="bei" destination="4u0-VP-fRb" id="Wgl-ke-3PU"/>
-                <outlet property="desc" destination="RE3-zD-reC" id="Mv1-fJ-ZMN"/>
-                <outlet property="img" destination="fkU-RK-74r" id="QIf-ZV-vWe"/>
-                <outlet property="name" destination="lC0-09-Mn2" id="I6J-Wd-6i5"/>
-                <outlet property="price" destination="luh-ZU-LjO" id="PTv-TC-4HO"/>
+                <outlet property="beiLabel" destination="4u0-VP-fRb" id="jtz-Dq-koy"/>
+                <outlet property="descLabel" destination="RE3-zD-reC" id="AHQ-lK-IvB"/>
+                <outlet property="imageView" destination="fkU-RK-74r" id="3Ig-A2-3ql"/>
+                <outlet property="nameLabel" destination="lC0-09-Mn2" id="CW2-du-ZN9"/>
+                <outlet property="priceLabel" destination="luh-ZU-LjO" id="5dR-4F-LHS"/>
             </connections>
         </view>
     </objects>
