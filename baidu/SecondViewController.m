@@ -26,9 +26,6 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)LockViewDidClick:(YYLockView *)lockView andPwd:(NSString *)pwd
-{
-    NSLog(@"密码=%@",pwd);
-}
+
 
 @end

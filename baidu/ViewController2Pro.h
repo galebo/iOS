@@ -16,3 +16,13 @@
 //保存图片的数组
 @property (retain, nonatomic) NSMutableArray *imageArray;
 @end
+
+
+@interface ViewPro : UIView
+//可滚动页面
+@property (retain, nonatomic) IBOutlet UIImageView *img;
+@property (retain, nonatomic) IBOutlet UILabel *name;
+@property (retain, nonatomic) IBOutlet UILabel *desc;
+@property (retain, nonatomic) IBOutlet UILabel *price;
+@property (retain, nonatomic) IBOutlet UILabel *bei;
+@end

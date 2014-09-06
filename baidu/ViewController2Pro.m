@@ -12,6 +12,17 @@
 
 @end
 
+
+@implementation ViewPro
+//可滚动页面
+@synthesize img;
+@synthesize name;
+@synthesize desc;
+@synthesize price;
+@synthesize bei;
+@end
+
+
 @implementation ViewController2Pro
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -89,19 +100,13 @@
     //填充滑动视图内容
     
     for (UIImage *image in self.imageArray) {
-        //首先创建一个视图
-        UIImageView *imageview = [[UIImageView alloc]initWithFrame:CGRectZero];
-        //为这个图片设置适当位置
-        CGRect rect ;
-        rect.origin.x = originX;
-        rect.origin.y = 0;
-        rect.size.width = self.scrollView.frame.size.width;
-        rect.size.height = self.scrollView.frame.size.height;
-        imageview.frame = rect;
-        //设置图片为背景
-        imageview.image = image;
+        ViewPro* cell=[[[NSBundle mainBundle]loadNibNamed:@"ViewPro" owner:nil options:nil]firstObject];
+        NSLog(@"创建了一个cell");
+        cell.img.image=image;
         //添加到视图中
-        [self.scrollView addSubview:imageview];
+        [self.scrollView addSubview:cell];
+        cell.frame=CGRectMake(originX, 0, cell.frame.size.width, cell.frame.size.width);
+        
         //确定下张图片开始的x坐标
         originX += self.scrollView.frame.size.width;
         //记录页数
