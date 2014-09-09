@@ -86,7 +86,8 @@
     //填充滑动视图内容
     for (int i=0;i<products.count;i++) {
         Product* product=[products objectAtIndex:i];
-        ViewPro* viewPro=[[[ViewPro alloc]initWithFrame:CGRectZero] init:product withNib:@"ViewPro" x:originX];
+        ViewPro* viewPro=[[ViewPro alloc]initWithFrame:CGRectZero];
+        [viewPro init:product withNib:@"ViewPro" x:originX];
         //添加到视图中
         [self.scrollView addSubview:viewPro];
         if(product.name==name){

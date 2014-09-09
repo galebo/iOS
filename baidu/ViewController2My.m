@@ -1,0 +1,116 @@
+//
+//  ViewController2My.m
+//  baidu
+//
+//  Created by lee on 14-9-9.
+//  Copyright (c) 2014年 lee. All rights reserved.
+//
+
+#import "ViewController2My.h"
+#import "SHLineGraphView.h"
+#import "SHPlot.h"
+@interface ViewController2My ()
+
+@end
+
+@implementation ViewController2My
+@synthesize viewPro;
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    [self _initChartView];
+    
+    
+    
+    AppDelegate *app = [[UIApplication sharedApplication]delegate];
+    [viewPro init:[app.products objectAtIndex:0] withNib:@"ViewProMy" x:0];
+}
+- (void)viewWillDisappear:(BOOL)animated{
+    self.navigationController.navigationBar.hidden = YES;
+    [super viewWillDisappear:animated];
+}
+-(void)viewDidAppear:(BOOL)animated{
+    self.navigationController.navigationBar.hidden = NO;
+    [super viewDidAppear:animated];
+}
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (void) _initChartView{
+    
+    SHLineGraphView *_lineGraph = [[SHLineGraphView alloc] initWithFrame:CGRectMake(-30, 0, 340, 176)];
+    NSDictionary *_themeAttributes = @{
+                                       kXAxisLabelColorKey : [UIColor whiteColor],
+                                       kXAxisLabelFontKey : [UIFont fontWithName:@"TrebuchetMS" size:10],
+                                       kYAxisLabelColorKey : [UIColor whiteColor],
+                                       kYAxisLabelFontKey : [UIFont fontWithName:@"TrebuchetMS" size:10],
+                                       kYAxisLabelSideMarginsKey : @20,
+                                       kPlotBackgroundLineColorKye : [UIColor redColor]
+                                       };
+    _lineGraph.themeAttributes = _themeAttributes;
+    _lineGraph.yAxisRange = @(98);
+    _lineGraph.yAxisSuffix = @" ";
+    
+    _lineGraph.xAxisValues = @[
+                               @{ @1 : @"08-28" },
+                               @{ @2 : @"08-29" },
+                               @{ @3 : @"08-30" },
+                               @{ @4 : @"08-31" },
+                               @{ @5 : @"09-01" },
+                               @{ @6 : @"09-02" },
+                               @{ @7 : @"09-03" }
+                               ];
+    SHPlot *_plot1 = [[SHPlot alloc] init];
+    
+    _plot1.plottingValues = @[
+                              @{ @1 : @65.8 },
+                              @{ @2 : @20 },
+                              @{ @3 : @23 },
+                              @{ @4 : @22 },
+                              @{ @5 : @12.3 },
+                              @{ @6 : @45.8 },
+                              @{ @7 : @56 }
+                              ];
+    
+    _plot1.plottingPointsLabels = @[@"1", @"2", @"3", @"4", @"5", @"6" , @"7" , @"8", @"9", @"10", @"11", @"12"];
+    
+    NSDictionary *_plotThemeAttributes = @{
+                                           kPlotFillColorKey : [UIColor redColor],
+                                           kPlotStrokeWidthKey : @2,
+                                           kPlotStrokeColorKey : [UIColor whiteColor],
+                                           kPlotPointFillColorKey : [UIColor whiteColor],
+                                           kPlotPointValueFontKey : [UIFont fontWithName:@"TrebuchetMS" size:18]
+                                           };
+    
+    _plot1.plotThemeAttributes = _plotThemeAttributes;
+    [_lineGraph addPlot:_plot1];
+    [_lineGraph setupTheView];
+    
+    [self.chartView setBackgroundColor:[UIColor redColor]];
+    [self.chartView addSubview:_lineGraph];
+}
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+@end

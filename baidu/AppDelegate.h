@@ -26,6 +26,7 @@
     @property (nonatomic, retain)  NSString *bei;
     @property (nonatomic, retain)  NSString *image;
     @property (nonatomic, retain)  NSString *shouyi;
+    @property (nonatomic, retain)  NSString *ziChan;
     @end
 
     @interface ProductCell : UITableViewCell
@@ -37,6 +38,7 @@
     @property (nonatomic, weak) IBOutlet UILabel *price10000Label;
     @property (nonatomic, weak) IBOutlet UILabel *beiLabel;
     @property (nonatomic, weak) IBOutlet UIImageView *imageView;
+    @property (nonatomic, weak) IBOutlet UILabel *ziChanLabel;
 
     -(void) initWithProduct:(Product*)product;
 
@@ -44,7 +46,7 @@
 
 
 @interface ViewPro : UIView
-    -(id) init:(Product*)product withNib:(NSString*)nibName x:(NSInteger)x;
+    -(void) init:(Product*)product withNib:(NSString*)nibName x:(NSInteger)x;
 @end
 
 

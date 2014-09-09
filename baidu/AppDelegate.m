@@ -15,6 +15,7 @@
     @synthesize price10000;
     @synthesize bei;
     @synthesize shouyi;
+    @synthesize ziChan;
 @end
 
 
@@ -28,6 +29,7 @@
     @synthesize price10000Label;
     @synthesize beiLabel;
     @synthesize imageView;
+    @synthesize ziChanLabel;
 
     -(void) initWithProduct:(Product*) product{
         self.nameLabel.text = product.name;
@@ -46,6 +48,9 @@
         if(self.shouyiLabel!=nil){
             self.shouyiLabel.text =product.shouyi;
         }
+        if(self.ziChanLabel!=nil){
+            self.ziChanLabel.text =product.ziChan;
+        }
     }
 @end
 
@@ -60,13 +65,11 @@
         return self;
     }
 
-    -(id) init:(Product*)product withNib:(NSString*)nibName x:(NSInteger)x{
+    -(void) init:(Product*)product withNib:(NSString*)nibName x:(NSInteger)x{
         ProductCell * cell=[[[NSBundle mainBundle]loadNibNamed:nibName owner:nil options:nil]firstObject];
         [cell initWithProduct:product];
         cell.frame=CGRectMake(x,0, cell.frame.size.width, cell.frame.size.height);
-        [self addSubview:cell];
-        return self;
-    }
+        [self addSubview:cell];    }
 @end
 
 
@@ -106,6 +109,7 @@
     player.bei = @"34";
     player.image=@"product.png";
     player.shouyi=@"30.0元";
+    player.ziChan=@"10000";
     [products addObject:player];
     player = [[Product alloc] init];
     player.name = @"百赚";
@@ -115,6 +119,7 @@
     player.bei = @"35";
     player.image=@"button.png";
     player.shouyi=@"31.0元";
+    player.ziChan=@"20000";
     [products addObject:player];
     player = [[Product alloc] init];
     player.name = @"百发";
@@ -124,6 +129,7 @@
     player.bei = @"36";
     player.image=@"product.png";
     player.shouyi=@"32.0元";
+    player.ziChan=@"30000";
     [products addObject:player];
     player = [[Product alloc] init];
     player.name = @"百度理财B";
@@ -133,6 +139,7 @@
     player.bei = @"37";
     player.image=@"button.png";
     player.shouyi=@"33.0元";
+    player.ziChan=@"40000";
     [products addObject:player];
     return YES;
 }

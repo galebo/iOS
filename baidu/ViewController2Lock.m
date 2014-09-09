@@ -29,14 +29,7 @@ int count=4;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
-- (void)viewWillDisappear:(BOOL)animated{
-    self.navigationController.navigationBar.hidden = YES;
-    [super viewWillDisappear:animated];
-}
--(void)viewDidAppear:(BOOL)animated{
-    self.navigationController.navigationBar.hidden = NO;
-    [super viewDidAppear:animated];
-}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

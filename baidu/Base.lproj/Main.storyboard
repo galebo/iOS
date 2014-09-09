@@ -265,7 +265,7 @@
                                             <outlet property="imageView" destination="a2C-fv-eHc" id="rlB-tF-pmt"/>
                                             <outlet property="nameLabel" destination="4Vz-Kz-ZTb" id="ajF-US-9z6"/>
                                             <outlet property="shouyiLabel" destination="QPy-8t-Jxi" id="MgW-4M-uBI"/>
-                                            <segue destination="E7c-iL-w2D" kind="push" id="Z99-1H-XxU"/>
+                                            <segue destination="ERB-5A-fA2" kind="push" id="Vwg-ea-hUd"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -316,6 +316,58 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6bS-8L-I9H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1060" y="1907"/>
+        </scene>
+        <!--View Controller2 My-->
+        <scene sceneID="Mr9-RX-S9L">
+            <objects>
+                <viewController id="ERB-5A-fA2" customClass="ViewController2My" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ErI-q9-TDU"/>
+                        <viewControllerLayoutGuide type="bottom" id="6oL-u1-OvC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gsY-Ax-nkW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5CU-Zs-7nD" customClass="ViewPro">
+                                <rect key="frame" x="0.0" y="240" width="320" height="239"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UeJ-0E-Wjz">
+                                <rect key="frame" x="0.0" y="64" width="320" height="176"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JTq-gV-vzJ">
+                                <rect key="frame" x="44" y="504" width="100" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="收钱" backgroundImage="button">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SwV-Ad-y99">
+                                <rect key="frame" x="176" y="504" width="100" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="投钱" backgroundImage="button">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="dkH-Le-NH2"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="chartView" destination="UeJ-0E-Wjz" id="Vrx-Go-xYf"/>
+                        <outlet property="viewPro" destination="5CU-Zs-7nD" id="MoC-FP-1b0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hpu-vr-9Jd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1723" y="1907"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Vex-rW-GRa">
@@ -486,6 +538,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Z99-1H-XxU"/>
+        <segue reference="QfF-tS-xe0"/>
     </inferredMetricsTieBreakers>
 </document>
