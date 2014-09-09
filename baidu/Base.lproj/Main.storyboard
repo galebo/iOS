@@ -68,6 +68,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="focusView" destination="EI6-jF-4Wn" id="CnT-RT-8xS"/>
+                        <outlet property="proView" destination="Gfp-oe-0ms" id="ILI-be-in5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3qq-4t-Ow8" sceneMemberID="firstResponder"/>
