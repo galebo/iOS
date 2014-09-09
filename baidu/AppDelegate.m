@@ -66,6 +66,18 @@
 @end
 
 
+@implementation UIBase
+
+    //设置tableview多于行无分割线
+    +(void)setExtraCellLineHidden: (UITableView *)tableView{
+        UIView *view = [UIView new];
+        view.backgroundColor = [UIColor clearColor];
+        [tableView setTableFooterView:view];
+    }
+
+@end
+
+
 @implementation AppDelegate
 
 @synthesize products;

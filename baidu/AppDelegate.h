@@ -44,3 +44,9 @@
 @interface ViewPro : UIView
     -(id) init:(Product*)product withNib:(NSString*)nibName x:(NSInteger)x;
 @end
+
+
+@interface UIBase : NSObject
+    //设置tableview多于行无分割线
+    +(void)setExtraCellLineHidden: (UITableView *)tableView;
+@end
