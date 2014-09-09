@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewControllerMy : UIViewController
-
+    @property(nonatomic,retain)IBOutlet UITableView* _tableView;
 @end

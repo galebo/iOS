@@ -14,6 +14,7 @@
     @synthesize price;
     @synthesize price10000;
     @synthesize bei;
+    @synthesize shouyi;
 @end
 
 
@@ -41,6 +42,9 @@
         }
         if(self.imageView!=nil){
             self.imageView.image =[UIImage imageNamed:product.image];
+        }
+        if(self.shouyiLabel!=nil){
+            self.shouyiLabel.text =product.shouyi;
         }
     }
 @end
@@ -101,6 +105,7 @@
     player.price10000 = @"5";
     player.bei = @"34";
     player.image=@"product.png";
+    player.shouyi=@"30.0元";
     [products addObject:player];
     player = [[Product alloc] init];
     player.name = @"百赚";
@@ -109,6 +114,7 @@
     player.price10000 = @"6";
     player.bei = @"35";
     player.image=@"button.png";
+    player.shouyi=@"31.0元";
     [products addObject:player];
     player = [[Product alloc] init];
     player.name = @"百发";
@@ -117,6 +123,7 @@
     player.price10000 = @"7";
     player.bei = @"36";
     player.image=@"product.png";
+    player.shouyi=@"32.0元";
     [products addObject:player];
     player = [[Product alloc] init];
     player.name = @"百度理财B";
@@ -125,6 +132,7 @@
     player.price10000 = @"8";
     player.bei = @"37";
     player.image=@"button.png";
+    player.shouyi=@"33.0元";
     [products addObject:player];
     return YES;
 }

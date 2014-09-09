@@ -7,12 +7,16 @@
 //
 
 #import "ViewControllerMy.h"
-
+#import "AppDelegate.h"
 @interface ViewControllerMy ()
-
+{
+    NSMutableArray* products;
+}
 @end
 
 @implementation ViewControllerMy
+
+@synthesize _tableView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,6 +30,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    AppDelegate *app = [[UIApplication sharedApplication]delegate];
+    products=app.products;
+    [UIBase setExtraCellLineHidden:self._tableView];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -46,6 +53,24 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+}
+
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    // Return the number of rows in the section.
+    return products.count;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ProductCell *cell = (ProductCell *)[tableView dequeueReusableCellWithIdentifier:@"ProductCell" forIndexPath:indexPath];
+    [cell initWithProduct:(products )[indexPath.row]];
+    return cell;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
 
