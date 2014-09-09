@@ -7,6 +7,7 @@
 //
 
 #import "ViewControllerProduct.h"
+#import "ViewController2Pro.h"
 #import "AppDelegate.h"
 
 @interface ViewControllerProduct ()
@@ -33,7 +34,6 @@
     [super viewDidLoad];
     AppDelegate *app = [[UIApplication sharedApplication]delegate];
     products=app.products;
-    self.hidesBottomBarWhenPushed=YES;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
    
@@ -111,15 +111,17 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    ProductCell* productCell=sender;
+    ViewController2Pro* vc=[segue destinationViewController];
+    vc.hidesBottomBarWhenPushed=YES;
+    [vc setValue:productCell.nameLabel.text forKey:@"name"];
 }
-*/
+
 
 @end

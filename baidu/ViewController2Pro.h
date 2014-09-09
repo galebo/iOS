@@ -11,4 +11,5 @@
 @interface ViewController2Pro : UIViewController<UIScrollViewDelegate>
 //可滚动页面
 @property (retain, nonatomic) UIScrollView *scrollView;
+@property(nonatomic,weak)NSString* name;
 @end

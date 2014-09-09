@@ -19,6 +19,7 @@
 
 @implementation ViewController2Pro
 
+@synthesize name;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -82,24 +83,27 @@
     
     NSUInteger page = 0;//为了记录页数
     int originX = 0;
+    int showPage=0;
     //填充滑动视图内容
     for (int i=0;i<products.count;i++) {
         ProductCell * cell=[[[NSBundle mainBundle]loadNibNamed:@"ViewPro" owner:nil options:nil]firstObject];
-        [cell initWithProduct:[products objectAtIndex:i]];
-        cell.frame=CGRectMake(originX, 0, cell.frame.size.width, cell.frame.size.width);
+        Product* product=[products objectAtIndex:i];
+        [cell initWithProduct:product];
+        cell.frame=CGRectMake(originX, 0, cell.frame.size.width, cell.frame.size.height);
         
         //添加到视图中
         [self.scrollView addSubview:cell];
-        
+        if(product.name==name){
+            showPage=i;
+        }
         //确定下张图片开始的x坐标
         originX += self.scrollView.frame.size.width;
         //记录页数
         page++;
     }
-    
+    NSLog(@"page:%d",showPage);
     //显示适当区域
-    [self.scrollView setContentSize:CGSizeMake(originX, self.scrollView.frame.size.height)];
-    [self scrollViewDidEndDecelerating:self.scrollView];
+    [self.scrollView setContentSize:CGSizeMake(self.scrollView.frame.size.width*(showPage+1), self.scrollView.frame.size.height)];
 }
 
 

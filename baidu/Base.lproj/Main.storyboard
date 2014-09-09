@@ -400,12 +400,13 @@
                         <viewControllerLayoutGuide type="bottom" id="kqQ-cX-ens"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="lHa-GG-kfg">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationItem key="navigationItem" title="Title" id="vTN-ym-Vax"/>
-                    <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dpP-dW-w73" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -473,6 +474,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="kPs-u2-vWJ"/>
+        <segue reference="QfF-tS-xe0"/>
     </inferredMetricsTieBreakers>
 </document>
