@@ -10,10 +10,9 @@
 
 #import "SGFocusImageFrame.h"
 #import "SGFocusImageItem.h"
+#import "AppDelegate.h"
 
 @interface ViewControllerFav : UIViewController<SGFocusImageFrameDelegate>
-{
-    UIView* focusView;
-}
 @property(nonatomic,retain)IBOutlet UIView* focusView;
+@property(nonatomic,retain)IBOutlet ViewPro* proView;
 @end

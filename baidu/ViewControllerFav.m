@@ -8,6 +8,7 @@
 
 #import "ViewControllerFav.h"
 #import "SecondViewController.h"
+#import "AppDelegate.h"
 
 @interface ViewControllerFav ()
 
@@ -16,6 +17,7 @@
 @implementation ViewControllerFav
 
 @synthesize focusView;
+@synthesize proView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,7 +33,10 @@
     [super viewDidLoad];
     [self setupViews];
     [self initNav];
-    //[self.view setBackgroundColor:[UIColor colorWithRed:220/255.0 green:39/255.0 blue:25/255.0 alpha:1]];
+    
+    AppDelegate *app = [[UIApplication sharedApplication]delegate];
+    Product* product=[app.products objectAtIndex:0];
+    [proView init:product withNib:@"ViewProFav" x:0];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 

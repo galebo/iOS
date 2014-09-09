@@ -9,39 +9,59 @@
 #import "AppDelegate.h"
 
 @implementation Product
-@synthesize name;
-@synthesize desc;
-@synthesize price;
-@synthesize price10000;
-@synthesize bei;
+    @synthesize name;
+    @synthesize desc;
+    @synthesize price;
+    @synthesize price10000;
+    @synthesize bei;
 @end
 
 
 
 
 @implementation ProductCell
-@synthesize nameLabel;
-@synthesize descLabel;
-@synthesize priceLabel;
-@synthesize price10000Label;
-@synthesize beiLabel;
-@synthesize imageView;
 
--(void) initWithProduct:(Product*) product{
-    self.nameLabel.text = product.name;
-    self.descLabel.text = product.desc;
-    self.priceLabel.text = product.price;
-    
-    if(self.beiLabel!=nil){
-        self.beiLabel.text=product.bei;
+    @synthesize nameLabel;
+    @synthesize descLabel;
+    @synthesize priceLabel;
+    @synthesize price10000Label;
+    @synthesize beiLabel;
+    @synthesize imageView;
+
+    -(void) initWithProduct:(Product*) product{
+        self.nameLabel.text = product.name;
+        self.descLabel.text = product.desc;
+        self.priceLabel.text = product.price;
+        
+        if(self.beiLabel!=nil){
+            self.beiLabel.text=product.bei;
+        }
+        if(self.price10000Label!=nil){
+            self.price10000Label.text=product.price10000;
+        }
+        if(self.imageView!=nil){
+            self.imageView.image =[UIImage imageNamed:product.image];
+        }
     }
-    if(self.price10000Label!=nil){
-        self.price10000Label.text=product.price10000;
+@end
+
+@implementation ViewPro
+
+    - (id)initWithFrame:(CGRect)frame
+    {
+        self = [super initWithFrame:frame];
+        if (self) {
+            // Initialization code
+        }
+        return self;
     }
-    if(self.imageView!=nil){
-        self.imageView.image =[UIImage imageNamed:product.image];
+
+    -(void) init:(Product*)product withNib:(NSString*)nibName x:(NSInteger)x{
+        ProductCell * cell=[[[NSBundle mainBundle]loadNibNamed:nibName owner:nil options:nil]firstObject];
+        [cell initWithProduct:product];
+        cell.frame=CGRectMake(x,0, cell.frame.size.width, cell.frame.size.height);
+        [self addSubview:cell];
     }
-}
 @end
 
 
