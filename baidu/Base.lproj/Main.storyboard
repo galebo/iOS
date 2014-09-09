@@ -320,6 +320,9 @@
                         </subviews>
                     </view>
                     <navigationItem key="navigationItem" title="更多" id="1Jb-bi-irH"/>
+                    <connections>
+                        <outlet property="_uiTableView" destination="rUz-Wi-OAt" id="DnT-CJ-IZX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ELn-iW-nk8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -405,6 +408,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="QfF-tS-xe0"/>
+        <segue reference="kPs-u2-vWJ"/>
     </inferredMetricsTieBreakers>
 </document>

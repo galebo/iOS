@@ -8,6 +8,7 @@
 
 #import "ViewControllerMore.h"
 #import "SecondViewController.h"
+#import "AppDelegate.h"
 
 @interface ViewControllerMore ()
 
@@ -54,9 +55,7 @@
 	[array2 addObject:checkListController];
     controllers=array2;
 
-    [self _setExtraCellLineHidden:_uiTableView];
-    
-    //[self.view setBackgroundColor:[UIColor colorWithRed:220/255.0 green:39/255.0 blue:25/255.0 alpha:1]];
+    [UIBase setExtraCellLineHidden:_uiTableView];
    
     [super viewDidLoad];
 }
@@ -65,15 +64,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-#pragma 内部方法 start
-//设置tableview多于行无分割线
--(void)_setExtraCellLineHidden: (UITableView *)tableView{
-    UIView *view = [UIView new];
-    view.backgroundColor = [UIColor clearColor];
-    [tableView setTableFooterView:view];
-}
 
-#pragma 内部方法 end
 
 #pragma implement UITableViewDataSource start
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

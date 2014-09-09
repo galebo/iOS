@@ -9,13 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewControllerMore : UIViewController<UITableViewDataSource,UITableViewDelegate>
-{
-    NSArray* listData;
-    NSArray *controllers;
-    UITableView* _uiTableView;
-}
-@property(nonatomic,retain)    NSArray *listData;
 
+@property(nonatomic,retain)    NSArray *listData;
 @property (nonatomic, retain) NSArray *controllers;
 @property(nonatomic,retain) IBOutlet UITableView* _uiTableView;
+
 @end
