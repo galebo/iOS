@@ -42,5 +42,5 @@
 
 
 @interface ViewPro : UIView
-    -(void) init:(Product*)product withNib:(NSString*)nibName x:(NSInteger)x;
+    -(id) init:(Product*)product withNib:(NSString*)nibName x:(NSInteger)x;
 @end

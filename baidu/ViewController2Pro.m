@@ -86,13 +86,10 @@
     int showPage=0;
     //填充滑动视图内容
     for (int i=0;i<products.count;i++) {
-        ProductCell * cell=[[[NSBundle mainBundle]loadNibNamed:@"ViewPro" owner:nil options:nil]firstObject];
         Product* product=[products objectAtIndex:i];
-        [cell initWithProduct:product];
-        cell.frame=CGRectMake(originX, 0, cell.frame.size.width, cell.frame.size.height);
-        
+        ViewPro* viewPro=[[[ViewPro alloc]initWithFrame:CGRectZero] init:product withNib:@"ViewPro" x:originX];
         //添加到视图中
-        [self.scrollView addSubview:cell];
+        [self.scrollView addSubview:viewPro];
         if(product.name==name){
             showPage=i;
         }

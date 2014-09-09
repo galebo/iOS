@@ -56,11 +56,12 @@
         return self;
     }
 
-    -(void) init:(Product*)product withNib:(NSString*)nibName x:(NSInteger)x{
+    -(id) init:(Product*)product withNib:(NSString*)nibName x:(NSInteger)x{
         ProductCell * cell=[[[NSBundle mainBundle]loadNibNamed:nibName owner:nil options:nil]firstObject];
         [cell initWithProduct:product];
         cell.frame=CGRectMake(x,0, cell.frame.size.width, cell.frame.size.height);
         [self addSubview:cell];
+        return self;
     }
 @end
 
