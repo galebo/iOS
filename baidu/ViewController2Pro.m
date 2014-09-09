@@ -60,7 +60,6 @@
     
     //将滚动视图和翻页视图添加到视图中
     [self.view addSubview:self.scrollView];
-    self.view.backgroundColor = [UIColor whiteColor];
     [self createsCrollView:nil];
 }
 
@@ -100,11 +99,14 @@
     }
     NSLog(@"page:%d",showPage);
     //显示适当区域
-    [self.scrollView setContentSize:CGSizeMake(self.scrollView.frame.size.width*(showPage+1), self.scrollView.frame.size.height)];
+    [self.scrollView setContentSize:CGSizeMake(self.scrollView.frame.size.width*products.count, self.scrollView.frame.size.height)];
+    CGPoint bottomOffset = CGPointMake(self.scrollView.frame.size.width*showPage,0);
+    [self.scrollView setContentOffset:bottomOffset animated:YES];
+    self.navigationItem.title=((Product* )[products objectAtIndex:showPage]).name;
 }
 
 
-//重写滑动结束后的反应，就是把pageConteol的当前页跟随滑动而动
+//重写滑动结束后的反应
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
