@@ -35,14 +35,7 @@
     AppDelegate *app = [[UIApplication sharedApplication]delegate];
     [viewPro init:[app.products objectAtIndex:0] withNib:@"ViewProMy" x:0];
 }
-- (void)viewWillDisappear:(BOOL)animated{
-    self.navigationController.navigationBar.hidden = YES;
-    [super viewWillDisappear:animated];
-}
--(void)viewDidAppear:(BOOL)animated{
-    self.navigationController.navigationBar.hidden = NO;
-    [super viewDidAppear:animated];
-}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

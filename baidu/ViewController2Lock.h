@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "YYLockView.h"
+#import "ViewControllerBase.h"
 
-@interface ViewController2Lock : UIViewController<YYLockViewDelegate>{
+@interface ViewController2Lock :  ViewControllerBase<YYLockViewDelegate>{
     UILabel* msg;
 }
 @property(nonatomic,retain )  IBOutlet UILabel* msg;

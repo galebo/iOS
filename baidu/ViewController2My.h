@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
-@interface ViewController2My : UIViewController
-@property(nonatomic,retain)IBOutlet UIView* chartView;
-@property(nonatomic,retain)IBOutlet ViewPro* viewPro;
+#import "ViewControllerBase.h"
+@interface ViewController2My :  ViewControllerBase
+@property(nonatomic,weak)IBOutlet UIView* chartView;
+@property(nonatomic,weak)IBOutlet ViewPro* viewPro;
 @end
