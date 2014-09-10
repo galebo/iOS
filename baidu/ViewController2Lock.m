@@ -50,5 +50,9 @@ int count=4;
 {
     NSLog(@"密码=%@",pwd);
     msg.text=[NSString stringWithFormat:@"密码错误剩余%d次",count-- ];
+    if(count==0){
+        count=4;
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 @end
