@@ -143,7 +143,7 @@
     player.shouyi=@"33.0元";
     player.ziChan=@"40000";
     [products addObject:player];
-    isShow=YES;
+    isShow=NO;
     return YES;
 }
 							
