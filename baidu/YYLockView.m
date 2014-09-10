@@ -120,7 +120,7 @@
     //创建一个可变的字符串，用来保存用户密码
     NSMutableString *result=[NSMutableString string];
     for (UIButton *btn in self.buttons) {
-        [result appendFormat:@"%d",btn.tag];
+        [result appendFormat:@"%ld",(long)btn.tag];
     }
     NSLog(@"用户输入的密码为：%@",result);
     //通知代理，告知用户输入的密码

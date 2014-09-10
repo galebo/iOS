@@ -12,7 +12,7 @@
 
     @property (strong, nonatomic) NSMutableArray* products;
     @property (strong, nonatomic) UIWindow *window;
-
+    @property( nonatomic) BOOL isShow;
 @end
 
 

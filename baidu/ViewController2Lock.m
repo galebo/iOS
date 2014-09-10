@@ -7,6 +7,7 @@
 //
 
 #import "ViewController2Lock.h"
+#import "AppDelegate.h"
 
 @interface ViewController2Lock ()
 @end
@@ -52,6 +53,8 @@ int count=4;
     msg.text=[NSString stringWithFormat:@"密码错误剩余%d次",count-- ];
     if(count==0){
         count=4;
+        AppDelegate *app = [[UIApplication sharedApplication]delegate];
+        app.isShow=false;
         [self dismissViewControllerAnimated:YES completion:nil];
     }
 }
