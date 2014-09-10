@@ -51,7 +51,7 @@
 
 - (void) _initChartView{
     
-    SHLineGraphView *_lineGraph = [[SHLineGraphView alloc] initWithFrame:CGRectMake(-30, 0, 340, 176)];
+    SHLineGraphView *_lineGraph = [[SHLineGraphView alloc] initWithFrame:CGRectMake(0, 0, self.chartView.frame.size.width, self.chartView.frame.size.height)];
     NSDictionary *_themeAttributes = @{
                                        kXAxisLabelColorKey : [UIColor whiteColor],
                                        kXAxisLabelFontKey : [UIFont fontWithName:@"TrebuchetMS" size:10],
@@ -61,9 +61,22 @@
                                        kPlotBackgroundLineColorKye : [UIColor redColor]
                                        };
     _lineGraph.themeAttributes = _themeAttributes;
-    _lineGraph.yAxisRange = @(98);
-    _lineGraph.yAxisSuffix = @" ";
     
+
+    
+   // _plot1.plottingPointsLabels = @[@"1", @"2", @"3", @"4", @"5", @"6" , @"7" , @"8", @"9", @"10", @"11", @"12"];
+    
+    NSDictionary *_plotThemeAttributes = @{
+                                           kPlotFillColorKey : [UIColor redColor],
+                                           kPlotStrokeWidthKey : @2,
+                                           kPlotStrokeColorKey : [UIColor whiteColor],
+                                           kPlotPointFillColorKey : [UIColor whiteColor],
+                                           kPlotPointValueFontKey : [UIFont fontWithName:@"TrebuchetMS" size:18]
+                                           };
+
+    
+    
+    _lineGraph.yAxisRange = @(60);
     _lineGraph.xAxisValues = @[
                                @{ @1 : @"08-28" },
                                @{ @2 : @"08-29" },
@@ -76,27 +89,19 @@
     SHPlot *_plot1 = [[SHPlot alloc] init];
     
     _plot1.plottingValues = @[
-                              @{ @1 : @65.8 },
+                              @{ @1 : @10 },
                               @{ @2 : @20 },
                               @{ @3 : @23 },
                               @{ @4 : @22 },
-                              @{ @5 : @12.3 },
-                              @{ @6 : @45.8 },
+                              @{ @5 : @40 },
+                              @{ @6 : @45 },
                               @{ @7 : @56 }
                               ];
     
-    _plot1.plottingPointsLabels = @[@"1", @"2", @"3", @"4", @"5", @"6" , @"7" , @"8", @"9", @"10", @"11", @"12"];
-    
-    NSDictionary *_plotThemeAttributes = @{
-                                           kPlotFillColorKey : [UIColor redColor],
-                                           kPlotStrokeWidthKey : @2,
-                                           kPlotStrokeColorKey : [UIColor whiteColor],
-                                           kPlotPointFillColorKey : [UIColor whiteColor],
-                                           kPlotPointValueFontKey : [UIFont fontWithName:@"TrebuchetMS" size:18]
-                                           };
     
     _plot1.plotThemeAttributes = _plotThemeAttributes;
     [_lineGraph addPlot:_plot1];
+    
     [_lineGraph setupTheView];
     
     [self.chartView setBackgroundColor:[UIColor redColor]];

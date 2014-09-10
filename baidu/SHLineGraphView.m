@@ -94,7 +94,7 @@
 - (void)drawPlotWithPlot:(SHPlot *)plot {
   //draw y-axis labels. this has to be done first, so that we can determine the left margin to leave according to the
   //y-axis lables.
-  [self drawYLabels:plot];
+  //[self drawYLabels:plot];
 
   //draw x-labels
   [self drawXLabels:plot];
