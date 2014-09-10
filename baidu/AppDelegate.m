@@ -143,7 +143,7 @@
     player.shouyi=@"33.0元";
     player.ziChan=@"40000";
     [products addObject:player];
-    isShow=FALSE;
+    isShow=YES;
     return YES;
 }
 							
@@ -167,10 +167,14 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     if(!isShow){
-        isShow=TRUE;
-        UIViewController *currentViewCtrl=((UINavigationController*)[((UITabBarController *)self.window.rootViewController).viewControllers objectAtIndex:0]).topViewController;
-        ViewController2Lock  *lock=[currentViewCtrl.storyboard instantiateViewControllerWithIdentifier:@"10001"];
-        [currentViewCtrl presentViewController:lock animated:NO completion:nil];
+        isShow=YES;
+        UITabBarController *tab=(UITabBarController *)self.window.rootViewController;
+        UINavigationController* nav=(UINavigationController*)[tab.viewControllers objectAtIndex:tab.selectedIndex];
+        ViewController2Lock  *lock=[nav.storyboard instantiateViewControllerWithIdentifier:@"10001"];
+        lock.navigationItem.hidesBackButton=YES;
+        lock.hidesBottomBarWhenPushed=YES;
+        [nav pushViewController:lock animated:YES];
+        //[currentViewCtrl presentViewController:lock animated:NO completion:nil];
     }
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }

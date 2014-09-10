@@ -122,7 +122,7 @@
     for (UIButton *btn in self.buttons) {
         [result appendFormat:@"%ld",(long)btn.tag];
     }
-    NSLog(@"用户输入的密码为：%@",result);
+    //NSLog(@"用户输入的密码为：%@",result);
     //通知代理，告知用户输入的密码
     if ([self.delegate respondsToSelector:@selector(LockViewDidClick:andPwd:)]) {
         [self.delegate LockViewDidClick:self andPwd:result];

@@ -49,13 +49,12 @@ int count=4;
 */
 -(void)LockViewDidClick:(YYLockView *)lockView andPwd:(NSString *)pwd
 {
-    NSLog(@"密码=%@",pwd);
     msg.text=[NSString stringWithFormat:@"密码错误剩余%d次",count-- ];
     if(count==0){
         count=4;
         AppDelegate *app = [[UIApplication sharedApplication]delegate];
-        app.isShow=false;
-        [self dismissViewControllerAnimated:YES completion:nil];
+        app.isShow=NO;
+        [self.navigationController popViewControllerAnimated:YES];
     }
 }
 @end

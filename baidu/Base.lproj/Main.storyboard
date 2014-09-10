@@ -67,7 +67,7 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="mWl-rZ-4YC"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="focusView" destination="EI6-jF-4Wn" id="CnT-RT-8xS"/>
+                        <outlet property="focusView" destination="EI6-jF-4Wn" id="sm9-8t-RMY"/>
                         <outlet property="proView" destination="Gfp-oe-0ms" id="ILI-be-in5"/>
                     </connections>
                 </viewController>
@@ -500,7 +500,7 @@
             </objects>
             <point key="canvasLocation" x="1723" y="1182"/>
         </scene>
-        <!--View Controller2 Lock - 公告中心-->
+        <!--View Controller2 Lock - 解锁-->
         <scene sceneID="2Kp-eg-xuy">
             <objects>
                 <viewController storyboardIdentifier="10001" useStoryboardIdentifierAsRestorationIdentifier="YES" id="E7c-iL-w2D" customClass="ViewController2Lock" sceneMemberID="viewController">
@@ -524,15 +524,14 @@
                                 <rect key="frame" x="82" y="121" width="156" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.91764712329999998" green="0.2196078598" blue="0.22352942819999999" alpha="1" colorSpace="deviceRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="公告中心" id="sMp-RQ-L4g">
-                        <barButtonItem key="backBarButtonItem" title=" " id="DTL-cN-OLm"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="解锁" id="GEF-M0-bma"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="msg" destination="Dku-T4-0Ak" id="LVM-j9-U8g"/>
                     </connections>
@@ -588,7 +587,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="oGI-FW-J0L"/>
         <segue reference="lNQ-zR-KBg"/>
+        <segue reference="FRe-Be-eJ6"/>
     </inferredMetricsTieBreakers>
 </document>
