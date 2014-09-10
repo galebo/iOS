@@ -170,7 +170,7 @@
         isShow=TRUE;
         UIViewController *currentViewCtrl=((UINavigationController*)[((UITabBarController *)self.window.rootViewController).viewControllers objectAtIndex:0]).topViewController;
         ViewController2Lock  *lock=[currentViewCtrl.storyboard instantiateViewControllerWithIdentifier:@"10001"];
-        [currentViewCtrl presentViewController:lock animated:YES completion:nil];
+        [currentViewCtrl presentViewController:lock animated:NO completion:nil];
     }
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
