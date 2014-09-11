@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AppDelegate.h"
 
 @interface DataMake : NSObject
 +(NSMutableArray*) getProducts;
++(Home*) getHome;
 @end

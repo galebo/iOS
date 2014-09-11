@@ -53,6 +53,24 @@
     player.ziChan=@"40000";
     [products addObject:player];
     return products;
-
+    
+}
++(Home*) getHome{
+    Home* home=[Home alloc];
+    home.banners = [NSMutableArray arrayWithCapacity:3];    
+    Banner *player = [Banner alloc];
+    player.url = @"http://maps.google.com/maps?q=pizza";
+    player.img = @"http://10.58.187.47:8080/images/banner1.png";
+    [home.banners addObject:player];
+    player = [Banner alloc ];
+    player.url = @"http://google.com";
+    player.img = @"http://10.58.187.47:8080/images/banner2.png";
+    [home.banners addObject:player];
+    player = [Banner alloc];
+    player.url = @"tel://555-1234";
+    player.img = @"http://10.58.187.47:8080/images/banner3.png";
+    [home.banners addObject:player];
+    return home;
+    
 }
 @end
