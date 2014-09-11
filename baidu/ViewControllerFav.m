@@ -48,9 +48,9 @@
 #pragma mark -
 - (void)setupViews
 {
-    SGFocusImageItem *item1 = [[SGFocusImageItem alloc] initWithTitle:nil image:[UIImage imageNamed:@"banner1"] tag:0] ;
-    SGFocusImageItem *item2 = [[SGFocusImageItem alloc] initWithTitle:nil image:[UIImage imageNamed:@"banner2"] tag:1] ;
-    SGFocusImageItem *item3 = [[SGFocusImageItem alloc] initWithTitle:nil image:[UIImage imageNamed:@"banner3"] tag:2] ;
+    SGFocusImageItem *item1 = [[SGFocusImageItem alloc] initWithTitle:nil image:[UIImage imageNamed:@"product_list_default_image"] tag:0] ;
+    SGFocusImageItem *item2 = [[SGFocusImageItem alloc] initWithTitle:nil image:[UIImage imageNamed:@"product_list_default_image"] tag:1] ;
+    SGFocusImageItem *item3 = [[SGFocusImageItem alloc] initWithTitle:nil image:[UIImage imageNamed:@"product_list_default_image"] tag:2] ;
     SGFocusImageFrame *imageFrame = [[SGFocusImageFrame alloc] initWithFrame:CGRectMake(0, 0, focusView.bounds.size.width,175.0)
                                                                     delegate:self  focusImageItems:item1, item2, item3, nil];
     [focusView addSubview:imageFrame];
