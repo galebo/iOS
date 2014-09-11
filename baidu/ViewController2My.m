@@ -9,6 +9,7 @@
 #import "ViewController2My.h"
 #import "SHLineGraphView.h"
 #import "SHPlot.h"
+#import "AppDelegate.h"
 @interface ViewController2My ()
 
 @end
@@ -110,5 +111,6 @@
     // Pass the selected object to the new view controller.
 }
 */
+
 
 @end

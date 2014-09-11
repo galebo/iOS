@@ -27,9 +27,10 @@
     @property (nonatomic, retain)  NSString *image;
     @property (nonatomic, retain)  NSString *shouyi;
     @property (nonatomic, retain)  NSString *ziChan;
-    @end
+    -(id)initByJson:(NSDictionary*)json;
+@end
 
-    @interface ProductCell : UITableViewCell
+@interface ProductCell : UITableViewCell
 
     @property (nonatomic, weak) IBOutlet UILabel *nameLabel;
     @property (nonatomic, weak) IBOutlet UILabel *descLabel;
@@ -51,6 +52,10 @@
 
 
 @interface UIBase : NSObject
-    //设置tableview多于行无分割线
-    +(void)setExtraCellLineHidden: (UITableView *)tableView;
+//设置tableview多于行无分割线
++(void)setExtraCellLineHidden: (UITableView *)tableView;
+@end
+
+@interface HttpGet : NSObject
++(NSMutableArray*)getProducts;
 @end
