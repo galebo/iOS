@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AppDelegate.h"
+#import "Bean.h"
 
 @interface HttpGetData : NSObject
 +(NSMutableArray*)getProducts;

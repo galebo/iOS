@@ -7,7 +7,7 @@
 //
 
 #import "DataMake.h"
-#import "AppDelegate.h"
+#import "Bean.h"
 @implementation DataMake
 +(NSMutableArray*) getProducts{
     NSMutableArray* products = [NSMutableArray arrayWithCapacity:4];

@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Bean.h"
+
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -16,30 +18,6 @@
 @end
 
 
-
-@interface Product:NSObject
-    //@property (nonatomic, weak) NSString *imageView;
-    @property (nonatomic, retain)  NSString *name;
-    @property (nonatomic, retain)  NSString *desc;
-    @property (nonatomic, retain)  NSString *price;
-    @property (nonatomic, retain)  NSString *price10000;
-    @property (nonatomic, retain)  NSString *bei;
-    @property (nonatomic, retain)  NSString *image;
-    @property (nonatomic, retain)  NSString *shouyi;
-    @property (nonatomic, retain)  NSString *ziChan;
-    -(id)initByJson:(NSDictionary*)json;
-@end
-
-@interface Banner:NSObject
-@property (nonatomic, retain)  NSString *img;
-@property (nonatomic, retain)  NSString *url;
--(id)initByJson:(NSDictionary*)json;
-@end
-
-@interface Home:NSObject
-@property (nonatomic, retain)  NSMutableArray *banners;
--(id)initByJson:(NSDictionary*)json;
-@end
 
 @interface ProductCell : UITableViewCell
 
