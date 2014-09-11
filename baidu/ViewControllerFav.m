@@ -54,7 +54,7 @@
     NSMutableArray* imageItems = [NSMutableArray array];
     SGFocusImageItem *eachItem;
     home= [HttpGet getHome ];
-    for (int i; i<home.banners.count; i++) {
+    for (int i=0; i<home.banners.count; i++) {
         eachItem = [[SGFocusImageItem alloc] initWithTitle:nil image:((Banner*) [home.banners objectAtIndex:i]).img tag:i] ;
         [imageItems addObject: eachItem];
     }

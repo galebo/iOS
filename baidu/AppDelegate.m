@@ -122,41 +122,39 @@
 
 @implementation HttpGet
 
-static bool ByJson=true;
 +(NSMutableArray*)getProducts{
-    if (ByJson) {
-        NSError *error;
-        //加载一个NSURL对象
-        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://192.168.235.1:8080/shop/j_room?id=1"]];
-        //将请求的url数据放到NSData对象中
-        NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-        //IOS5自带解析类NSJSONSerialization从response中解析出数据放到字典中
-        NSArray* deserializedArray = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-        
-        if (deserializedArray != nil && error == nil){
-            NSMutableArray* products = [NSMutableArray arrayWithCapacity:deserializedArray.count];
-            for (id json in deserializedArray) {
-                Product *product=[[Product alloc]initByJson:json];
-                [products addObject:product];
-            }
-            return products;
+    NSArray* rtnJson =[HttpGet doGet:@"http://10.58.187.47:8080/shop/j_room"];
+    if (rtnJson!=nil) {
+        NSMutableArray* products = [NSMutableArray arrayWithCapacity:rtnJson.count];
+        for (id json in rtnJson) {
+            Product *product=[[Product alloc]initByJson:json];
+            [products addObject:product];
         }
+        return products;
     }else{
         return [DataMake getProducts];
     }
-    return nil;
 }
 
 +(Home*) getHome{
+    id deserializedArray = [HttpGet doGet:@"http://10.58.187.47:8080/shop/j_home"];
+    Home* home=[[Home alloc]initByJson:deserializedArray];
+    return home;
+}
+
++(id) doGet:(NSString*)url{
     NSError *error;
     //加载一个NSURL对象
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://192.168.235.1:8080/shop/j_home"]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     //将请求的url数据放到NSData对象中
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     //IOS5自带解析类NSJSONSerialization从response中解析出数据放到字典中
-    id deserializedArray = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-    Home* home=[[Home alloc]initByJson:deserializedArray];
-    return home;
+    id rtn = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
+    if (rtn != nil && error == nil){
+        NSLog(@"rtn:%@",rtn);
+        return rtn;
+    }
+    return nil;
 }
 @end
 

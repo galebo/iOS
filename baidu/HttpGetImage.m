@@ -53,7 +53,6 @@
     //_data为NSMutableData类型的私有属性，用于保存从网络上接收到的数据。
     //也可以从此委托中获取到图片加载的进度。
     [_data appendData:data];
-    NSLog(@"%lld%%", data.length/_response.expectedContentLength * 100);
 }
 - (void)connection:(NSURLConnection*)connection didFailWithError:(NSError*)error{
     //请求异常，在此可以进行出错后的操作，如给UIImageView设置一张默认的图片等。
