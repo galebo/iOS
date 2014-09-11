@@ -27,19 +27,23 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    if (url!=nil) {
-        NSURL *url_ = [[NSURL alloc]initWithString:url];
-        UIWebView* webView=(UIWebView*)self.view;
-        [webView loadRequest:[NSURLRequest requestWithURL:url_]];
-    }
+    NSLog(@"viewDidLoad");
 }
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (void)viewDidAppear:(BOOL)animated{
+    NSLog(@"viewDidAppear");
+    if (url!=nil) {
+        NSURL *url_ = [[NSURL alloc]initWithString:url];
+        UIWebView* webView=(UIWebView*)self.view;
+        [webView loadRequest:[NSURLRequest requestWithURL:url_]];
+    }
 
+    [super viewDidAppear:animated];
+}
 /*
 #pragma mark - Navigation
 
