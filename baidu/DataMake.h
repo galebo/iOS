@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface DataMake : NSObject
-
++(NSMutableArray*) getProducts;
 @end

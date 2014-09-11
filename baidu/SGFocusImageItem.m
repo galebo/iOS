@@ -14,7 +14,7 @@
 @synthesize tag =  _tag;
 
 
-- (id)initWithTitle:(NSString *)title image:(UIImage *)image tag:(NSInteger)tag
+- (id)initWithTitle:(NSString *)title image:(NSString *)image tag:(NSInteger)tag
 {
     self = [super init];
     if (self) {

@@ -22,7 +22,7 @@
 
     @property (nonatomic, assign) id<SGFocusImageFrameDelegate> delegate;
 
-    - (id)initWithFrame:(CGRect)frame delegate:(id<SGFocusImageFrameDelegate>)delegate focusImageItems:(SGFocusImageItem *)items, ... NS_REQUIRES_NIL_TERMINATION;
+    - (id)initWithFrame:(CGRect)frame delegate:(id<SGFocusImageFrameDelegate>)delegate datas:(NSMutableArray *)datas;
     - (void)clickPageImage:(UIButton *)sender;
 
 @end

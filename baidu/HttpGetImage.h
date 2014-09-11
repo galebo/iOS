@@ -10,5 +10,6 @@
 
 @interface HttpGetImage : NSObject
 
+-(void)get:(NSString*) url forButton:(UIButton*)image defaultImg:(NSString*) defaultImg;
 -(void)get:(NSString*) url forImage:(UIImageView*)image defaultImg:(NSString*) defaultImg;
 @end

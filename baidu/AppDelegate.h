@@ -69,4 +69,5 @@
 
 @interface HttpGet : NSObject
 +(NSMutableArray*)getProducts;
++(Home*)getHome;
 @end

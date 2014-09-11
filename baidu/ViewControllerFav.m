@@ -10,7 +10,9 @@
 #import "SecondViewController.h"
 #import "AppDelegate.h"
 
-@interface ViewControllerFav ()
+@interface ViewControllerFav (){
+    Home* home;
+}
 
 @end
 
@@ -38,6 +40,7 @@
     Product* product=[app.products objectAtIndex:0];
     [proView init:product withNib:@"ViewProFav" x:0];
 	// Do any additional setup after loading the view, typically from a nib.
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -48,11 +51,14 @@
 #pragma mark -
 - (void)setupViews
 {
-    SGFocusImageItem *item1 = [[SGFocusImageItem alloc] initWithTitle:nil image:[UIImage imageNamed:@"product_list_default_image"] tag:0] ;
-    SGFocusImageItem *item2 = [[SGFocusImageItem alloc] initWithTitle:nil image:[UIImage imageNamed:@"product_list_default_image"] tag:1] ;
-    SGFocusImageItem *item3 = [[SGFocusImageItem alloc] initWithTitle:nil image:[UIImage imageNamed:@"product_list_default_image"] tag:2] ;
-    SGFocusImageFrame *imageFrame = [[SGFocusImageFrame alloc] initWithFrame:CGRectMake(0, 0, focusView.bounds.size.width,175.0)
-                                                                    delegate:self  focusImageItems:item1, item2, item3, nil];
+    NSMutableArray* imageItems = [NSMutableArray array];
+    SGFocusImageItem *eachItem;
+    home= [HttpGet getHome ];
+    for (int i; i<home.banners.count; i++) {
+        eachItem = [[SGFocusImageItem alloc] initWithTitle:nil image:((Banner*) [home.banners objectAtIndex:i]).img tag:i] ;
+        [imageItems addObject: eachItem];
+    }
+    SGFocusImageFrame *imageFrame = [[SGFocusImageFrame alloc] initWithFrame:CGRectMake(0, 0, focusView.bounds.size.width,175.0) delegate:self  datas:imageItems];
     [focusView addSubview:imageFrame];
 
 }
@@ -60,16 +66,9 @@
 #pragma mark -
 - (void)foucusImageFrame:(SGFocusImageFrame *)imageFrame didSelectItem:(SGFocusImageItem *)item
 {
-    if(item.tag==0){
-        NSURL *url = [NSURL URLWithString:@"http://google.com"];
-        [[UIApplication sharedApplication] openURL:url];
-    }else if(item.tag==1){
-        NSURL *url=[NSURL URLWithString:@"tel://555-1234"];
-        [[UIApplication sharedApplication] openURL:url];
-    }else{
-        NSURL *url = [NSURL URLWithString:@"http://maps.google.com/maps?q=pizza"];
-        [[UIApplication sharedApplication] openURL:url];
-    }
+    Banner* banner=[home.banners objectAtIndex:item.tag];
+    NSURL *url = [NSURL URLWithString:banner.url];
+    [[UIApplication sharedApplication] openURL:url];
 }
 
 - (void)initNav {

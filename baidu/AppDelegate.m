@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ViewController2Lock.h"
+#import "DataMake.h"
 
 @implementation Product
     @synthesize name;
@@ -43,7 +44,7 @@
 @implementation Home
 @synthesize banners;
 -(id)initByJson:(NSDictionary*)json_{
-    NSArray* jsonArray=[json_ objectForKey:@"banner"];
+    NSArray* jsonArray=[json_ objectForKey:@"banners"];
     banners = [NSMutableArray arrayWithCapacity:jsonArray.count];
     for (id json in jsonArray) {
         Banner *product=[[Banner alloc]initByJson:json];
@@ -141,14 +142,15 @@ static bool ByJson=true;
             return products;
         }
     }else{
-           }
+        return [DataMake getProducts];
+    }
     return nil;
-   }
+}
 
 +(Home*) getHome{
     NSError *error;
     //加载一个NSURL对象
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://192.168.235.1:8080/shop/j_room?id=1"]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://192.168.235.1:8080/shop/j_home"]];
     //将请求的url数据放到NSData对象中
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     //IOS5自带解析类NSJSONSerialization从response中解析出数据放到字典中
@@ -174,7 +176,7 @@ static bool ByJson=true;
     [[UINavigationBar appearance] setTintColor:fontColor];
     
     products=[HttpGet getProducts];
-    isShow=NO;
+    isShow=YES;
     return YES;
 }
 							

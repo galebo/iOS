@@ -9,6 +9,7 @@
 #import "SGFocusImageFrame.h"
 #import "SGFocusImageItem.h"
 #import <objc/runtime.h>
+#import "HttpGetImage.h"
 
 @interface SGFocusImageFrame () {
     UIScrollView *_scrollView;
@@ -20,7 +21,6 @@
 - (void)switchFocusImageItems;
 @end
 
-//static NSString *SG_FOCUS_ITEM_ASS_KEY = @"com.touchmob.sgfocusitems";
 
 static CGFloat SWITCH_FOCUS_PICTURE_INTERVAL = 3.0; //switch interval time
 
@@ -30,26 +30,11 @@ static CGFloat SWITCH_FOCUS_PICTURE_INTERVAL = 3.0; //switch interval time
 
 @synthesize delegate = _delegate;
 
-- (id)initWithFrame:(CGRect)frame delegate:(id<SGFocusImageFrameDelegate>)delegate focusImageItems:(SGFocusImageItem *)firstItem, ...
+- (id)initWithFrame:(CGRect)frame delegate:(id<SGFocusImageFrameDelegate>)delegate datas:(NSMutableArray *)datas
 {
     self = [super initWithFrame:frame];
     if (self) {
-        imageItems = [NSMutableArray array];
-        SGFocusImageItem *eachItem;
-        va_list argumentList;
-        if (firstItem)
-        {                                  
-            [imageItems addObject: firstItem];
-            va_start(argumentList, firstItem);       
-            while((eachItem = va_arg(argumentList, SGFocusImageItem *)))
-            {
-                [imageItems addObject: eachItem];            
-            }
-            va_end(argumentList);
-        }
-        
-        //objc_setAssociatedObject(self, (const void *)SG_FOCUS_ITEM_ASS_KEY, imageItems, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-        
+        imageItems=datas;
         [self setupViews];
         
         [self setDelegate:delegate]; 
@@ -57,23 +42,8 @@ static CGFloat SWITCH_FOCUS_PICTURE_INTERVAL = 3.0; //switch interval time
     return self;
 }
 
-/*- (void)dealloc
-{
-    objc_setAssociatedObject(self, (const void *)SG_FOCUS_ITEM_ASS_KEY, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-
-}*/
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
-
 #pragma mark - private methods
 - (void)setupViews{
-    //NSArray *imageItems = objc_getAssociatedObject(self, (const void *)SG_FOCUS_ITEM_ASS_KEY);
     _scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
     
     CGSize size = CGSizeMake(100, 44);
@@ -81,12 +51,7 @@ static CGFloat SWITCH_FOCUS_PICTURE_INTERVAL = 3.0; //switch interval time
     
     [self addSubview:_scrollView];
     [self addSubview:_pageControl];
-    
-    /*
-    _scrollView.layer.cornerRadius = 10;
-    _scrollView.layer.borderWidth = 1 ;
-    _scrollView.layer.borderColor = [[UIColor lightGrayColor ] CGColor];
-    */
+
     _scrollView.showsHorizontalScrollIndicator = NO;
     _scrollView.pagingEnabled = YES;
     
@@ -106,25 +71,14 @@ static CGFloat SWITCH_FOCUS_PICTURE_INTERVAL = 3.0; //switch interval time
         //添加图片展示按钮
         UIButton * imageView = [UIButton buttonWithType:UIButtonTypeCustom];
         [imageView setFrame:CGRectMake(i * _scrollView.frame.size.width, 0, _scrollView.frame.size.width, _scrollView.frame.size.height)];
-        [imageView setBackgroundImage:item.image forState:UIControlStateNormal];
+        HttpGetImage* httpget=[HttpGetImage alloc];
+        [httpget get:item.image forButton:imageView defaultImg:@"product_list_default_image"];
         imageView.tag = i;
         //添加点击事件
         [imageView addTarget:self action:@selector(clickPageImage:) forControlEvents:UIControlEventTouchUpInside];
-//        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i * _scrollView.frame.size.width, 0, _scrollView.frame.size.width, _scrollView.frame.size.height)];
-//        imageView.image = item.image;
-        //添加标题栏
-        UILabel * lbltitle = [[UILabel alloc] initWithFrame:CGRectMake(i * _scrollView.frame.size.width, _scrollView.frame.size.height-22.0, _scrollView.frame.size.width, 22.0)];
-        lbltitle.text = item.title;
-        lbltitle.backgroundColor = [UIColor clearColor];
-        
         [_scrollView addSubview:imageView];
-        [_scrollView addSubview:lbltitle];
-      
     }
-    
-    
     [self performSelector:@selector(switchFocusImageItems) withObject:nil afterDelay:SWITCH_FOCUS_PICTURE_INTERVAL];
-    //objc_setAssociatedObject(self, (const void *)SG_FOCUS_ITEM_ASS_KEY, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (void)switchFocusImageItems{
@@ -137,8 +91,6 @@ static CGFloat SWITCH_FOCUS_PICTURE_INTERVAL = 3.0; //switch interval time
 }
 
 - (void)singleTapGestureRecognizer:(UIGestureRecognizer *)gestureRecognizer{
-    //NSLog(@"%s", __FUNCTION__);
-  //  NSArray *imageItems = objc_getAssociatedObject(self, SG_FOCUS_ITEM_ASS_KEY);
     int page = (int)(_scrollView.contentOffset.x / _scrollView.frame.size.width);
     if (page > -1 && page < imageItems.count) {
         SGFocusImageItem *item = [imageItems objectAtIndex:page];
@@ -146,11 +98,9 @@ static CGFloat SWITCH_FOCUS_PICTURE_INTERVAL = 3.0; //switch interval time
             [self.delegate foucusImageFrame:self didSelectItem:item];
         }
     }
-    //objc_setAssociatedObject(self, (const void *)SG_FOCUS_ITEM_ASS_KEY, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (void)moveToTargetPosition:(CGFloat)targetX{
-    //NSLog(@"moveToTargetPosition : %f" , targetX);
     if (targetX >= _scrollView.contentSize.width) {
         targetX = 0.0;
     }
@@ -168,7 +118,6 @@ static CGFloat SWITCH_FOCUS_PICTURE_INTERVAL = 3.0; //switch interval time
 }
 #pragma mark - UIButtonTouchEvent
 -(void)clickPageImage:(UIButton *)sender{
-    //NSLog(@"click button tag is %d",sender.tag);
     UIButton *image=(UIButton*)sender;
     if ([self.delegate respondsToSelector:@selector(foucusImageFrame:didSelectItem:)]) {
         [self.delegate foucusImageFrame:self didSelectItem:[imageItems objectAtIndex:image.tag]];
