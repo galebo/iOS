@@ -66,8 +66,3 @@
 //设置tableview多于行无分割线
 +(void)setExtraCellLineHidden: (UITableView *)tableView;
 @end
-
-@interface HttpGet : NSObject
-+(NSMutableArray*)getProducts;
-+(Home*)getHome;
-@end

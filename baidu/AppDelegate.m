@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "ViewController2Lock.h"
 #import "DataMake.h"
+#import "HttpGetData.h"
 
 @implementation Product
     @synthesize name;
@@ -19,7 +20,7 @@
     @synthesize shouyi;
     @synthesize ziChan;
     @synthesize image;
--(id)initByJson:(NSDictionary*)json{
+-(Product*)initByJson:(NSDictionary*)json{
     name=[json objectForKey:@"name"];
     desc=[json objectForKey:@"desc"];
     price=[json objectForKey:@"price"];
@@ -35,7 +36,7 @@
 @implementation Banner
 @synthesize img;
 @synthesize url;
--(id)initByJson:(NSDictionary*)json{
+-(Banner*)initByJson:(NSDictionary*)json{
     img=[json objectForKey:@"img"];
     url=[json objectForKey:@"url"];
     return self;
@@ -43,7 +44,7 @@
 @end
 @implementation Home
 @synthesize banners;
--(id)initByJson:(NSDictionary*)json_{
+-(Home*)initByJson:(NSDictionary*)json_{
     NSArray* jsonArray=[json_ objectForKey:@"banners"];
     banners = [NSMutableArray arrayWithCapacity:jsonArray.count];
     for (id json in jsonArray) {
@@ -120,43 +121,7 @@
 @end
 
 
-@implementation HttpGet
 
-+(NSMutableArray*)getProducts{
-    NSArray* rtnJson =[HttpGet doGet:@"http://10.58.187.47:8080/shop/j_room"];
-    if (rtnJson!=nil) {
-        NSMutableArray* products = [NSMutableArray arrayWithCapacity:rtnJson.count];
-        for (id json in rtnJson) {
-            Product *product=[[Product alloc]initByJson:json];
-            [products addObject:product];
-        }
-        return products;
-    }else{
-        return [DataMake getProducts];
-    }
-}
-
-+(Home*) getHome{
-    id deserializedArray = [HttpGet doGet:@"http://10.58.187.47:8080/shop/j_home"];
-    Home* home=[[Home alloc]initByJson:deserializedArray];
-    return home;
-}
-
-+(id) doGet:(NSString*)url{
-    NSError *error;
-    //加载一个NSURL对象
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
-    //将请求的url数据放到NSData对象中
-    NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-    //IOS5自带解析类NSJSONSerialization从response中解析出数据放到字典中
-    id rtn = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-    if (rtn != nil && error == nil){
-        NSLog(@"rtn:%@",rtn);
-        return rtn;
-    }
-    return nil;
-}
-@end
 
 @implementation AppDelegate
 
@@ -173,8 +138,8 @@
     [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObject:fontColor forKey:NSForegroundColorAttributeName]];
     [[UINavigationBar appearance] setTintColor:fontColor];
     
-    products=[HttpGet getProducts];
-    isShow=YES;
+    products=[HttpGetData getProducts];
+    isShow=NO;
     return YES;
 }
 							

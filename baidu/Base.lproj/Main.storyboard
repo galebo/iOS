@@ -482,6 +482,20 @@
             </objects>
             <point key="canvasLocation" x="1060" y="-216"/>
         </scene>
+        <!--View Controller2 Web-->
+        <scene sceneID="fBM-GY-hkx">
+            <objects>
+                <viewController storyboardIdentifier="ViewController2Web" id="V0k-S5-5Nj" customClass="ViewController2Web" sceneMemberID="viewController">
+                    <webView key="view" contentMode="scaleToFill" id="44f-QV-YqD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </webView>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gey-TF-tSw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1723" y="-216"/>
+        </scene>
         <!--View Controller2 Pro - Title-->
         <scene sceneID="GvJ-25-cEa">
             <objects>
@@ -590,7 +604,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="oGI-FW-J0L"/>
         <segue reference="lNQ-zR-KBg"/>
-        <segue reference="FRe-Be-eJ6"/>
     </inferredMetricsTieBreakers>
 </document>

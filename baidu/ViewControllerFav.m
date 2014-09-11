@@ -8,7 +8,7 @@
 
 #import "ViewControllerFav.h"
 #import "SecondViewController.h"
-#import "AppDelegate.h"
+#import "HttpGetData.h"
 
 @interface ViewControllerFav (){
     Home* home;
@@ -53,7 +53,7 @@
 {
     NSMutableArray* imageItems = [NSMutableArray array];
     SGFocusImageItem *eachItem;
-    home= [HttpGet getHome ];
+    home= [HttpGetData getHome ];
     for (int i=0; i<home.banners.count; i++) {
         eachItem = [[SGFocusImageItem alloc] initWithTitle:nil image:((Banner*) [home.banners objectAtIndex:i]).img tag:i] ;
         [imageItems addObject: eachItem];

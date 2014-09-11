@@ -7,18 +7,17 @@
 //
 
 #import "ViewControllerMore.h"
-#import "SecondViewController.h"
+#import "ViewController2Web.h"
 #import "AppDelegate.h"
 
 @interface ViewControllerMore ()
-
+{
+    NSArray *listData;
+}
 @end
 
 @implementation ViewControllerMore
 
-
-@synthesize listData;
-@synthesize controllers;
 @synthesize _uiTableView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -47,13 +46,7 @@
 - (void)viewDidLoad {
     
     NSArray *array = [[NSArray alloc] initWithObjects:@"公告中心",@"手势密码",@"修改手势密码",@"帮助中心",@"客服热线",@"用户反馈", @"关于",nil];
-    self.listData = array;
-    
-    NSMutableArray *array2 = [[NSMutableArray alloc] init];
-    //增加check控制器
-	SecondViewController *checkListController = [[SecondViewController alloc] init];
-	[array2 addObject:checkListController];
-    controllers=array2;
+    listData = array;
 
     [UIBase setExtraCellLineHidden:_uiTableView];
    
@@ -96,10 +89,11 @@
 
 #pragma implement UITableViewDelegate start
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	//NSInteger row = [indexPath row];
-	UIViewController *nextController = [self.controllers objectAtIndex:0];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-	[self.navigationController pushViewController:nextController animated:YES];
+    
+	ViewController2Web* vc=[self.storyboard instantiateViewControllerWithIdentifier:@"ViewController2Web"];
+    vc.url=@"http://www.baidu.com";
+	[self.navigationController pushViewController:vc animated:YES];
 }
 #pragma implement UITableViewDelegate end
 @end
