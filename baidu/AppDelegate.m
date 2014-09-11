@@ -31,6 +31,27 @@
 }
 @end
 
+@implementation Banner
+@synthesize img;
+@synthesize url;
+-(id)initByJson:(NSDictionary*)json{
+    img=[json objectForKey:@"img"];
+    url=[json objectForKey:@"url"];
+    return self;
+}
+@end
+@implementation Home
+@synthesize banners;
+-(id)initByJson:(NSDictionary*)json_{
+    NSArray* jsonArray=[json_ objectForKey:@"banner"];
+    banners = [NSMutableArray arrayWithCapacity:jsonArray.count];
+    for (id json in jsonArray) {
+        Banner *product=[[Banner alloc]initByJson:json];
+        [banners addObject:product];
+    }
+    return self;
+}
+@end
 
 
 
@@ -99,6 +120,7 @@
 
 
 @implementation HttpGet
+
 static bool ByJson=true;
 +(NSMutableArray*)getProducts{
     if (ByJson) {
@@ -119,52 +141,21 @@ static bool ByJson=true;
             return products;
         }
     }else{
-       NSMutableArray* products = [NSMutableArray arrayWithCapacity:4];
-        
-        Product *player = [[Product alloc] init];
-        player.name = @"百度利滚利版";
-        player.desc = @"一元起购，即买即到，随用随取";
-        player.price = @"4.654";
-        player.price10000 = @"5";
-        player.bei = @"34";
-        player.image=@"product.png";
-        player.shouyi=@"30.0元";
-        player.ziChan=@"10000";
-        [products addObject:player];
-        player = [[Product alloc] init];
-        player.name = @"百赚";
-        player.desc = @"低风险，一元起购，随时买卖";
-        player.price = @"4.387";
-        player.price10000 = @"6";
-        player.bei = @"35";
-        player.image=@"button.png";
-        player.shouyi=@"31.0元";
-        player.ziChan=@"20000";
-        [products addObject:player];
-        player = [[Product alloc] init];
-        player.name = @"百发";
-        player.desc = @"团结就有8%，理财周期30天";
-        player.price = @"7.859";
-        player.price10000 = @"7";
-        player.bei = @"36";
-        player.image=@"product.png";
-        player.shouyi=@"32.0元";
-        player.ziChan=@"30000";
-        [products addObject:player];
-        player = [[Product alloc] init];
-        player.name = @"百度理财B";
-        player.desc = @"低风险，一元起购，随时买卖";
-        player.price = @"4.387";
-        player.price10000 = @"8";
-        player.bei = @"37";
-        player.image=@"button.png";
-        player.shouyi=@"33.0元";
-        player.ziChan=@"40000";
-        [products addObject:player];
-        return products;
-    }
+           }
     return nil;
    }
+
++(Home*) getHome{
+    NSError *error;
+    //加载一个NSURL对象
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://192.168.235.1:8080/shop/j_room?id=1"]];
+    //将请求的url数据放到NSData对象中
+    NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    //IOS5自带解析类NSJSONSerialization从response中解析出数据放到字典中
+    id deserializedArray = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
+    Home* home=[[Home alloc]initByJson:deserializedArray];
+    return home;
+}
 @end
 
 @implementation AppDelegate

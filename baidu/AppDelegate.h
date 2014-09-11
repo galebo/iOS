@@ -30,6 +30,17 @@
     -(id)initByJson:(NSDictionary*)json;
 @end
 
+@interface Banner:NSObject
+@property (nonatomic, retain)  NSString *img;
+@property (nonatomic, retain)  NSString *url;
+-(id)initByJson:(NSDictionary*)json;
+@end
+
+@interface Home:NSObject
+@property (nonatomic, retain)  NSMutableArray *banners;
+-(id)initByJson:(NSDictionary*)json;
+@end
+
 @interface ProductCell : UITableViewCell
 
     @property (nonatomic, weak) IBOutlet UILabel *nameLabel;
