@@ -39,16 +39,17 @@
     }
     return self;
 }
-
+- (IBAction)clickTop:(id)sender{
+    NSLog(@"tag:%ld",[sender tag]);
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    UIView * top=[[[NSBundle mainBundle]loadNibNamed:@"ViewMyTop" owner:nil options:nil]firstObject];
+    [((UIButton* )[top viewWithTag:10001]) addTarget:self action:@selector(clickTop:) forControlEvents:UIControlEventTouchUpInside];
+    [((UIButton* )[top viewWithTag:10002]) addTarget:self action:@selector(clickTop:) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.titleView=top;
+    self.clearsSelectionOnViewWillAppear = NO;
 }
 
 - (void)didReceiveMemoryWarning
