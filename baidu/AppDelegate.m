@@ -45,6 +45,38 @@
     }
 @end
 
+@implementation ProductView
+
+@synthesize nameLabel;
+@synthesize descLabel;
+@synthesize priceLabel;
+@synthesize price10000Label;
+@synthesize beiLabel;
+@synthesize imageView;
+@synthesize ziChanLabel;
+
+-(void) initWithProduct:(Product*) product{
+    self.nameLabel.text = product.name;
+    self.descLabel.text = product.desc;
+    self.priceLabel.text = product.price;
+    
+    if(self.beiLabel!=nil){
+        self.beiLabel.text=product.bei;
+    }
+    if(self.price10000Label!=nil){
+        self.price10000Label.text=product.price10000;
+    }
+    if(self.imageView!=nil){
+        self.imageView.image =[UIImage imageNamed:product.image];
+    }
+    if(self.shouyiLabel!=nil){
+        self.shouyiLabel.text =product.shouyi;
+    }
+    if(self.ziChanLabel!=nil){
+        self.ziChanLabel.text =product.ziChan;
+    }
+}
+@end
 @implementation ViewPro
 
     - (id)initWithFrame:(CGRect)frame
@@ -94,7 +126,7 @@
     [[UINavigationBar appearance] setTintColor:fontColor];
     
     products=[HttpGetData getProducts];
-    isShow=NO;
+    isShow=YES;
     return YES;
 }
 							

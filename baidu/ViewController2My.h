@@ -12,4 +12,5 @@
 @interface ViewController2My :  ViewControllerBase
 @property(nonatomic,weak)IBOutlet UIView* chartView;
 @property(nonatomic,weak)IBOutlet ViewPro* viewPro;
+-(IBAction)clickButton :(id)sender;
 @end

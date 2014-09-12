@@ -9,7 +9,7 @@
 #import "HttpGetData.h"
 
 @implementation HttpGetData
-static bool isWebOk=true;
+static bool isWebOk=NO;
 +(NSMutableArray*)getProducts{
     NSArray* rtnJson =[HttpGetData doGet:@"http://10.58.187.47:8080/shop/j_products"];
     if (rtnJson!=nil) {

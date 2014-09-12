@@ -35,6 +35,12 @@
     
     AppDelegate *app = [[UIApplication sharedApplication]delegate];
     [viewPro init:[app.products objectAtIndex:0] withNib:@"ViewProMy" x:0];
+    UIButton* button= (UIButton*) [viewPro viewWithTag:10001];
+    [button addTarget:self action:@selector(clickButton:) forControlEvents:UIControlEventTouchUpInside];
+    [( (UIButton*) [viewPro viewWithTag:10002]) addTarget:self action:@selector(clickButton:) forControlEvents:UIControlEventTouchUpInside];
+    [( (UIButton*) [viewPro viewWithTag:10003]) addTarget:self action:@selector(clickButton:) forControlEvents:UIControlEventTouchUpInside];
+    [( (UIButton*) [viewPro viewWithTag:10004]) addTarget:self action:@selector(clickButton:) forControlEvents:UIControlEventTouchUpInside];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -111,6 +117,9 @@
     // Pass the selected object to the new view controller.
 }
 */
-
+-(IBAction)clickButton :(id)sender{
+    
+    NSLog(@"%ld",[sender tag]);
+}
 
 @end

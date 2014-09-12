@@ -18,7 +18,7 @@
 @property (nonatomic, retain)  NSString *image;
 @property (nonatomic, retain)  NSString *shouyi;
 @property (nonatomic, retain)  NSString *ziChan;
--(id)initByJson:(NSDictionary*)json;
+-(Product*)initByJson:(NSDictionary*)json;
 @end
 
 @interface Banner:NSObject
@@ -29,5 +29,13 @@
 
 @interface Home:NSObject
 @property (nonatomic, retain)  NSMutableArray *banners;
--(id)initByJson:(NSDictionary*)json;
+-(Home*)initByJson:(NSDictionary*)json;
+@end
+
+@interface ShouYi:NSObject
+@property (nonatomic, retain)  NSString *name;
+@property (nonatomic, retain)  NSString *date;
+@property (nonatomic, retain)  NSString *money;
+@property (nonatomic, retain)  NSString *type;
+-(ShouYi*)initByJson:(NSDictionary*)json;
 @end

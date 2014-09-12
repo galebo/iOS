@@ -53,3 +53,18 @@
 }
 @end
 
+@implementation ShouYi
+
+@synthesize name;
+@synthesize date;
+@synthesize money;
+@synthesize type;
+-(ShouYi*)initByJson:(NSDictionary*)json{
+    name=[json objectForKey:@"name"];
+    date=[json objectForKey:@"date"];
+    money=[json objectForKey:@"money"];
+    type=[json objectForKey:@"type"];
+    return self;
+}
+@end
+
