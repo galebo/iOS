@@ -118,8 +118,10 @@
 }
 */
 -(IBAction)clickButton :(id)sender{
-    
     NSLog(@"%ld",[sender tag]);
+    UIViewController *vc=[self.storyboard instantiateViewControllerWithIdentifier:@"ViewController3My"];
+    self.isParentSon=YES;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

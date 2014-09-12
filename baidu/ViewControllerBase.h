@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewControllerBase : UIViewController
-
+@property(nonatomic,assign)BOOL isParentSon;
 @end

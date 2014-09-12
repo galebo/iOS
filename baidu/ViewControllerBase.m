@@ -15,6 +15,7 @@
 @implementation ViewControllerBase
 
 bool parentIsHiddenNav=NO;
+@synthesize isParentSon;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -48,12 +49,15 @@ bool parentIsHiddenNav=NO;
 */
 
 - (void)viewWillDisappear:(BOOL)animated{
-    if(parentIsHiddenNav){
-        self.navigationController.navigationBar.hidden = YES;
+    if (!isParentSon) {
+        if(parentIsHiddenNav){
+            self.navigationController.navigationBar.hidden = YES;
+        }
     }
     [super viewWillDisappear:animated];
 }
 -(void)viewDidAppear:(BOOL)animated{
+    isParentSon=NO;
     if(self.navigationController.navigationBar.hidden){
         self.navigationController.navigationBar.hidden = NO;
         parentIsHiddenNav=YES;

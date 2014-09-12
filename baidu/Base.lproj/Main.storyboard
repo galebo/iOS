@@ -390,10 +390,10 @@
             </objects>
             <point key="canvasLocation" x="1723" y="1907"/>
         </scene>
-        <!--Table View Controller-->
+        <!--View Controller3 My-->
         <scene sceneID="72k-aD-Olb">
             <objects>
-                <tableViewController id="mzb-cp-buN" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ViewController3My" id="mzb-cp-buN" customClass="ViewController3My" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="iWI-zT-mES">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
