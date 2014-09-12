@@ -5,7 +5,7 @@
       location = "container:"
       name = "New Group">
       <FileRef
-         location = "self:baidu.xcodeproj">
+         location = "group:">
       </FileRef>
    </Group>
 </Workspace>
