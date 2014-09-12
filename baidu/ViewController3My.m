@@ -26,7 +26,11 @@
 
 
 @interface ViewController3My ()
-
+{
+    bool isSelect;
+    int count;
+    UIRefreshControl*refresh;
+}
 @end
 
 @implementation ViewController3My
@@ -41,6 +45,12 @@
 }
 - (IBAction)clickTop:(id)sender{
     NSLog(@"tag:%ld",[sender tag]);
+    if([sender tag]==10001){
+        isSelect=FALSE;
+    }else{
+        isSelect=TRUE;
+    }
+    [[self tableView] reloadData];
 }
 - (void)viewDidLoad
 {
@@ -50,6 +60,9 @@
     [((UIButton* )[top viewWithTag:10002]) addTarget:self action:@selector(clickTop:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.titleView=top;
     self.clearsSelectionOnViewWillAppear = NO;
+    isSelect=FALSE;
+    count=1;
+    [self setbeginRefreshing];
 }
 
 - (void)didReceiveMemoryWarning
@@ -69,15 +82,54 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 30;
+    return 8*count;
+}
+
+#pragma 开始刷新函数
+
+- (void)setbeginRefreshing
+{
+    refresh = [[UIRefreshControl alloc]init];
+    //刷新图形颜色
+    refresh.tintColor = [UIColor lightGrayColor];
+    //刷新的标题
+    refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"下拉刷新"];
+    // UIRefreshControl 会触发一个UIControlEventValueChanged事件，通过监听这个事件，我们就可以进行类似数据请求的操作了
+    [refresh addTarget:  self action:@selector(refreshTableviewAction:) forControlEvents:UIControlEventValueChanged];
+    self.refreshControl =refresh;
+    
 }
 
 
+-(void)refreshTableviewAction:(UIRefreshControl *)refreshs
+{
+    if (refreshs.refreshing) {
+        refreshs.attributedTitle = [[NSAttributedString alloc]initWithString:@"正在刷新"];
+        [self performSelector:@selector(refershData) withObject:nil afterDelay:2];
+        count++;
+    }
+}
+
+
+-(void)refershData
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"]; //创建的时间格式
+    NSString *lastUpdated = [NSString stringWithFormat:@"上一次更新时间为 %@", [formatter stringFromDate:[NSDate date]]];
+    self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:lastUpdated] ;
+    [self.refreshControl endRefreshing];
+    [self.tableView reloadData];
+    
+}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ShouYiCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ShouYiCell" forIndexPath:indexPath];
     ShouYi* shouyi=[ShouYi alloc];
-    shouyi.name=@"转账";
+    if (isSelect) {
+        shouyi.name=@"转账1";
+    }else{
+        shouyi.name=@"转账2";
+    }
     shouyi.money=@"10000";
     shouyi.type=@"建设银行";
     shouyi.date=@"2010-09-01";

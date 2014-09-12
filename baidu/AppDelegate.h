@@ -10,11 +10,13 @@
 #import "Bean.h"
 
 
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
     @property (strong, nonatomic) NSMutableArray* products;
     @property (strong, nonatomic) UIWindow *window;
     @property( nonatomic) BOOL isShow;
++(UIColor*)commonColor;
 @end
 
 

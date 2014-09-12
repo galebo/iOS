@@ -114,14 +114,17 @@
 
 @synthesize products;
 @synthesize isShow;
++(UIColor*) commonColor{
+    return [UIColor colorWithRed:202.0/255.0 green:37.0/255.0 blue:21.0/255.0 alpha:1.0];
+}
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    UIColor* commonColor=[UIColor colorWithRed:233.0/255.0 green:1.0/255.0 blue:2.0/255.0 alpha:1.0];
+
     UIColor* fontColor=[UIColor whiteColor];
-    [[UITabBar appearance] setTintColor:commonColor];
+    [[UITabBar appearance] setTintColor:[AppDelegate commonColor]];
     
-    [[UINavigationBar appearance] setBarTintColor:commonColor];
+    [[UINavigationBar appearance] setBarTintColor:[AppDelegate commonColor]];
     [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObject:fontColor forKey:NSForegroundColorAttributeName]];
     [[UINavigationBar appearance] setTintColor:fontColor];
     

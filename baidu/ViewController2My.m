@@ -58,7 +58,7 @@
                                        kYAxisLabelColorKey : [UIColor whiteColor],
                                        kYAxisLabelFontKey : [UIFont fontWithName:@"TrebuchetMS" size:10],
                                        kYAxisLabelSideMarginsKey : @20,
-                                       kPlotBackgroundLineColorKye : [UIColor redColor]
+                                       kPlotBackgroundLineColorKye : [AppDelegate  commonColor]
                                        };
     _lineGraph.themeAttributes = _themeAttributes;
     
@@ -104,8 +104,9 @@
     
     [_lineGraph setupTheView];
     
-    [self.chartView setBackgroundColor:[UIColor redColor]];
+    [self.chartView setBackgroundColor:[AppDelegate commonColor]];
     [self.chartView addSubview:_lineGraph];
+    [self.view setBackgroundColor:[AppDelegate commonColor]];
 }
 /*
 #pragma mark - Navigation
