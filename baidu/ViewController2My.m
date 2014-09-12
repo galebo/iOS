@@ -31,7 +31,7 @@
     
     [self _initChartView];
     
-    
+    self.navigationItem.title=@"百度利滚利版";
     
     AppDelegate *app = [[UIApplication sharedApplication]delegate];
     [viewPro init:[app.products objectAtIndex:0] withNib:@"ViewProMy" x:0];
