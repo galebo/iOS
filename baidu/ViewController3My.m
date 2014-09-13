@@ -8,49 +8,35 @@
 
 #import "ViewController3My.h"
 #import "Bean.h"
-@implementation ShouYiCell
-
-@synthesize name;
-@synthesize date;
-@synthesize money;
-@synthesize type;
-
--(void) initWithProduct:(ShouYi*)product{
-    self.name.text = product.name;
-    self.date.text = product.date;
-    self.money.text = product.money;
-    self.type.text = product.type;
-}
-@end
 
 
 
 @interface ViewController3My ()
 {
-    bool isSelect;
-    int count;
-    UIRefreshControl*refresh;
+    bool isShouYiSelect;
 }
 @end
 
 @implementation ViewController3My
 
-- (id)initWithStyle:(UITableViewStyle)style
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithStyle:style];
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
     }
     return self;
 }
 - (IBAction)clickTop:(id)sender{
-    NSLog(@"tag:%ld",[sender tag]);
     if([sender tag]==10001){
-        isSelect=FALSE;
+        isShouYiSelect=TRUE;
+        [[self TableViewShouyi] setHidden:NO];
+        [[self TableViewZhang] setHidden:YES];
     }else{
-        isSelect=TRUE;
+        isShouYiSelect=FALSE;
+        [[self TableViewZhang] setHidden:NO];
+        [[self TableViewShouyi] setHidden:YES];
     }
-    [[self tableView] reloadData];
 }
 - (void)viewDidLoad
 {
@@ -59,10 +45,11 @@
     [((UIButton* )[top viewWithTag:10001]) addTarget:self action:@selector(clickTop:) forControlEvents:UIControlEventTouchUpInside];
     [((UIButton* )[top viewWithTag:10002]) addTarget:self action:@selector(clickTop:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.titleView=top;
-    self.clearsSelectionOnViewWillAppear = NO;
-    isSelect=FALSE;
-    count=1;
-    [self setbeginRefreshing];
+    isShouYiSelect=YES;
+    
+    [[self TableViewShouyi] start:YES];
+    [[self TableViewZhang] start:NO];
+    //self.TableViewShouyi.clearsSelectionOnViewWillAppear = NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -70,74 +57,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    // Return the number of sections.
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    // Return the number of rows in the section.
-    return 8*count;
-}
-
-#pragma 开始刷新函数
-
-- (void)setbeginRefreshing
-{
-    refresh = [[UIRefreshControl alloc]init];
-    //刷新图形颜色
-    refresh.tintColor = [UIColor lightGrayColor];
-    //刷新的标题
-    refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"下拉刷新"];
-    // UIRefreshControl 会触发一个UIControlEventValueChanged事件，通过监听这个事件，我们就可以进行类似数据请求的操作了
-    [refresh addTarget:  self action:@selector(refreshTableviewAction:) forControlEvents:UIControlEventValueChanged];
-    self.refreshControl =refresh;
-    
-}
-
-
--(void)refreshTableviewAction:(UIRefreshControl *)refreshs
-{
-    if (refreshs.refreshing) {
-        refreshs.attributedTitle = [[NSAttributedString alloc]initWithString:@"正在刷新"];
-        [self performSelector:@selector(refershData) withObject:nil afterDelay:2];
-        count++;
-    }
-}
-
-
--(void)refershData
-{
-    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
-    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"]; //创建的时间格式
-    NSString *lastUpdated = [NSString stringWithFormat:@"上一次更新时间为 %@", [formatter stringFromDate:[NSDate date]]];
-    self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:lastUpdated] ;
-    [self.refreshControl endRefreshing];
-    [self.tableView reloadData];
-    
-}
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    ShouYiCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ShouYiCell" forIndexPath:indexPath];
-    ShouYi* shouyi=[ShouYi alloc];
-    if (isSelect) {
-        shouyi.name=@"转账1";
-    }else{
-        shouyi.name=@"转账2";
-    }
-    shouyi.money=@"10000";
-    shouyi.type=@"建设银行";
-    shouyi.date=@"2010-09-01";
-    [cell initWithProduct:shouyi];
-    
-    return cell;
-}
-
 
 /*
 // Override to support conditional editing of the table view.

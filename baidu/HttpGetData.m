@@ -9,9 +9,9 @@
 #import "HttpGetData.h"
 
 @implementation HttpGetData
-static bool isWebOk=NO;
+static bool isWebOk=YES;
 +(NSMutableArray*)getProducts{
-    NSArray* rtnJson =[HttpGetData doGet:@"http://10.58.187.47:8080/shop/j_products"];
+    NSArray* rtnJson =[HttpGetData doGet:@"http://107.170.199.9:9080/shop/j_products"];
     if (rtnJson!=nil) {
         NSMutableArray* products = [NSMutableArray arrayWithCapacity:rtnJson.count];
         for (id json in rtnJson) {
@@ -25,12 +25,32 @@ static bool isWebOk=NO;
 }
 
 +(Home*) getHome{
-    id rtnJson = [HttpGetData doGet:@"http://10.58.187.47:8080/shop/j_home"];
+    id rtnJson = [HttpGetData doGet:@"http://107.170.199.9:9080/shop/j_home"];
     if (rtnJson!=nil) {
         Home* home=[[Home alloc]initByJson:rtnJson];
         return home;
     }else{
         return [DataMake getHome];
+    }
+}
++(ShouYis*) getShouYi:(int) page{
+    NSString* url=[NSString stringWithFormat:@"http://107.170.199.9:9080/shop/j_shouyi?page=%d",page];
+    id rtnJson = [HttpGetData doGet:url];
+    if (rtnJson!=nil) {
+        ShouYis* home=[[ShouYis alloc]initByJson:rtnJson];
+        return home;
+    }else{
+        return nil;
+    }
+}
++(ShouYis*) getZhang:(int) page{
+    NSString* url=[NSString stringWithFormat:@"http://107.170.199.9:9080/shop/j_zhang?page=%d",page];
+    id rtnJson = [HttpGetData doGet:url];
+    if (rtnJson!=nil) {
+        ShouYis* home=[[ShouYis alloc]initByJson:rtnJson];
+        return home;
+    }else{
+        return nil;
     }
 }
 

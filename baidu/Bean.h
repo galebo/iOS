@@ -36,6 +36,11 @@
 @property (nonatomic, retain)  NSString *name;
 @property (nonatomic, retain)  NSString *date;
 @property (nonatomic, retain)  NSString *money;
-@property (nonatomic, retain)  NSString *type;
+@property (nonatomic, retain)  NSString *desc;
 -(ShouYi*)initByJson:(NSDictionary*)json;
+@end
+
+@interface ShouYis:NSObject
+@property (nonatomic, retain)  NSMutableArray *shouYis;
+-(ShouYis*)initByJson:(NSDictionary*)json;
 @end

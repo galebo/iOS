@@ -58,13 +58,26 @@
 @synthesize name;
 @synthesize date;
 @synthesize money;
-@synthesize type;
+@synthesize desc;
 -(ShouYi*)initByJson:(NSDictionary*)json{
     name=[json objectForKey:@"name"];
     date=[json objectForKey:@"date"];
     money=[json objectForKey:@"money"];
-    type=[json objectForKey:@"type"];
+    desc=[json objectForKey:@"desc"];
     return self;
 }
 @end
 
+
+@implementation ShouYis
+@synthesize shouYis;
+-(ShouYis*)initByJson:(NSDictionary*)json_{
+    NSArray* jsonArray=[json_ objectForKey:@"shouYis"];
+    shouYis = [NSMutableArray arrayWithCapacity:jsonArray.count];
+    for (id json in jsonArray) {
+        ShouYi *product=[[ShouYi alloc]initByJson:json];
+        [shouYis addObject:product];
+    }
+    return self;
+}
+@end

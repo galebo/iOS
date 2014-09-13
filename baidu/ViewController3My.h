@@ -7,15 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface ViewController3My : UITableViewController
+#import "UITableViewMy.h"
+@interface ViewController3My : UIViewController
+@property (weak, nonatomic) IBOutlet UITableViewMy *TableViewShouyi;
+@property (weak, nonatomic) IBOutlet UITableViewMy *TableViewZhang;
 
 @end
 
-
-@interface ShouYiCell : UITableViewCell
-@property (nonatomic, weak) IBOutlet UILabel *name;
-@property (nonatomic, weak) IBOutlet UILabel *date;
-@property (nonatomic, weak) IBOutlet UILabel *money;
-@property (nonatomic, weak) IBOutlet UILabel *type;
-@end

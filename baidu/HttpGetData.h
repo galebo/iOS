@@ -12,4 +12,6 @@
 @interface HttpGetData : NSObject
 +(NSMutableArray*)getProducts;
 +(Home*)getHome;
++(ShouYis*) getShouYi:(int) page;
++(ShouYis*) getZhang:(int) page;
 @end
