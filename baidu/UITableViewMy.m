@@ -33,7 +33,8 @@
     NSMutableArray* datas;
     int page;
     BOOL isShowYi;
-    UIRefreshControl* refreshControl;
+    BOOL _loadingMore;
+    UIActivityIndicatorView *tableFooterActivityIndicator ;
 }
 @end
 
@@ -56,14 +57,14 @@
 }
 */
 -(void)start:(BOOL) _isShouYi{
+    
+    [self createTableFooter];
     isShowYi=_isShouYi;
     self.delegate=self;
     self.dataSource=self;
-    [self setbeginRefreshing];
     page=1;
     datas=[[NSMutableArray alloc] init];
     [self _getData];
-    [self refershData];
 }
 #pragma mark - Table view data source
 
@@ -80,52 +81,67 @@
     return datas.count;
 }
 
-#pragma 开始刷新函数
 
-- (void)setbeginRefreshing
+
+
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
-    UIRefreshControl*refresh = [[UIRefreshControl alloc]init];
-    //刷新图形颜色
-    refresh.tintColor = [UIColor lightGrayColor];
-    //刷新的标题
-    refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"下拉刷新"];
-    // UIRefreshControl 会触发一个UIControlEventValueChanged事件，通过监听这个事件，我们就可以进行类似数据请求的操作了
-    [refresh addTarget:  self action:@selector(refreshTableviewAction:) forControlEvents:UIControlEventValueChanged];
-    refreshControl =refresh;
-}
-
-
--(void)refreshTableviewAction:(UIRefreshControl *)refreshs
-{
-    if (refreshs.refreshing) {
-        refreshs.attributedTitle = [[NSAttributedString alloc]initWithString:@"正在刷新"];
-        [self performSelector:@selector(refershData) withObject:nil afterDelay:2];
-        
-        page++;
-        [self _getData];
+    // 下拉到最底部时显示更多数据
+    
+    if(!_loadingMore&& scrollView.contentOffset.y > ((scrollView.contentSize.height - scrollView.frame.size.height)))
+    {
+        [self loadDataBegin];
     }
 }
 
 
--(void)refershData
-{
-    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
-    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"]; //创建的时间格式
-    NSString *lastUpdated = [NSString stringWithFormat:@"上一次更新时间为 %@", [formatter stringFromDate:[NSDate date]]];
-    refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:lastUpdated] ;
-    [refreshControl endRefreshing];
+
+// 开始加载数据
+
+- (void) loadDataBegin{
     
-    
-    [self reloadData];
-    
+    if (_loadingMore == NO) {
+        _loadingMore = YES;
+        
+        [tableFooterActivityIndicator startAnimating];
+        [self _getData];
+        [self reloadData];
+        
+        _loadingMore = NO;
+        //[tableFooterActivityIndicator stopAnimating];
+        //[self createTableFooter];
+    }
 }
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+
+
+
+
+
+
+// 创建表格底部
+
+- (void) createTableFooter
 {
-    NSLog(@"cellFor");
+    self.tableFooterView = nil;
+    UIView *tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.bounds.size.width, 50.0f)];
+    UILabel *loadMoreText = [[UILabel alloc] initWithFrame:CGRectMake(40.0f, 0.0f, 116.0f, 40.0f)];
+    [loadMoreText setCenter:tableFooterView.center];
+    [loadMoreText setFont:[UIFont fontWithName:@"Helvetica Neue" size:14]];
+    [loadMoreText setText:@"上拉显示更多数据"];
+    [tableFooterView addSubview:loadMoreText];
+    
+    tableFooterActivityIndicator = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 20.0f, 20.0f)];
+    [tableFooterActivityIndicator setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleGray];
+    [tableFooterActivityIndicator setCenter:CGPointMake(80, 25)];
+    [tableFooterView addSubview:tableFooterActivityIndicator];
+    self.tableFooterView = tableFooterView;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     ShouYiCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ShouYiCell" forIndexPath:indexPath];
-    
     [cell initWithProduct:[datas objectAtIndex:indexPath.row]];
-    
     return cell;
 }
 -(void)_getData{
@@ -137,5 +153,6 @@
         [datas addObjectsFromArray:shouyi.shouYis];
     }
 }
+
 
 @end
