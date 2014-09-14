@@ -347,6 +347,10 @@
                                 <rect key="frame" x="0.0" y="234" width="320" height="500"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5CU-Zs-7nD" customClass="ViewPro">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="239"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </view>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SwV-Ad-y99">
                                         <rect key="frame" x="49" y="275" width="100" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -354,6 +358,9 @@
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="5hg-wm-bMD" kind="push" id="fkn-3o-D1T"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JTq-gV-vzJ">
                                         <rect key="frame" x="185" y="275" width="100" height="30"/>
@@ -362,17 +369,15 @@
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="5hg-wm-bMD" kind="push" id="Xms-Hd-I1Q"/>
+                                        </connections>
                                     </button>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5CU-Zs-7nD" customClass="ViewPro">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="239"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UeJ-0E-Wjz">
-                                <rect key="frame" x="0.0" y="118" width="320" height="116"/>
+                                <rect key="frame" x="0.0" y="117" width="320" height="116"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
@@ -380,7 +385,7 @@
                         <color key="backgroundColor" red="0.89803928136825562" green="0.38823533058166504" blue="0.25098040699958801" alpha="1" colorSpace="deviceRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="dkH-Le-NH2">
-                        <barButtonItem key="backBarButtonItem" title=" " id="ccr-Am-PJh"/>
+                        <barButtonItem key="backBarButtonItem" title=" " id="ccr-Am-PJh" userLabel="Bar Button Item -"/>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -509,6 +514,20 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="bps-oW-tUR">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="KIr-KP-OkY">
+                            <rect key="frame" x="94" y="7" width="133" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="收益明细"/>
+                                <segment title="交易明细"/>
+                            </segments>
+                            <connections>
+                                <action selector="clickTop:" destination="5hg-wm-bMD" eventType="valueChanged" id="jnQ-C7-skS"/>
+                            </connections>
+                        </segmentedControl>
+                    </navigationItem>
                     <connections>
                         <outlet property="TableViewShouyi" destination="34R-Tg-SJS" id="f8V-IY-Zlo"/>
                         <outlet property="TableViewZhang" destination="Ude-Ng-N0d" id="x12-fm-eHG"/>
@@ -706,7 +725,9 @@
                             <outlet property="delegate" destination="Puy-Q0-0Gr" id="2Rd-0h-g7B"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="EDK-HS-hSq"/>
+                    <navigationItem key="navigationItem" id="EDK-HS-hSq">
+                        <nil key="title"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uMl-up-LMc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -731,6 +752,7 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="2X3-VX-oDZ"/>
+        <segue reference="fkn-3o-D1T"/>
         <segue reference="oGI-FW-J0L"/>
     </inferredMetricsTieBreakers>
 </document>
