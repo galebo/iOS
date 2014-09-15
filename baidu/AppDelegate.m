@@ -138,7 +138,6 @@
     [[UISegmentedControl appearance] setTitleTextAttributes:dic2 forState:UIControlStateNormal];
     [[UISegmentedControl appearance] setTintColor:[UIColor colorWithRed:179.0/255.0 green:28.0/255.0 blue:18.0/255.0 alpha:1.0]];
     
-    //[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     products=[HttpGetData getProducts];
     isShow=YES;
     return YES;
