@@ -8,6 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol String2Bean <NSObject>
+- (id)initByJson:(id)json;
+@end
+
+@protocol ProcessBean <NSObject>
+- (void)exe:(id)bean;
+@end
+
 @interface Product:NSObject
 //@property (nonatomic, weak) NSString *imageView;
 @property (nonatomic, retain)  NSString *name;
@@ -40,7 +48,7 @@
 -(ShouYi*)initByJson:(NSDictionary*)json;
 @end
 
-@interface ShouYis:NSObject
+@interface ShouYis:NSObject<String2Bean>
 @property (nonatomic, retain)  NSMutableArray *shouYis;
 -(ShouYis*)initByJson:(NSDictionary*)json;
 @end

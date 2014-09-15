@@ -12,6 +12,7 @@
 @interface HttpGetData : NSObject
 +(NSMutableArray*)getProducts;
 +(Home*)getHome;
-+(ShouYis*) getShouYi:(int) page;
-+(ShouYis*) getZhang:(int) page;
++(void) getShouYi:(int) page :(id<ProcessBean>) processBean;
++(void) getZhang:(int) page :(id<ProcessBean>) processBean;
 @end
+

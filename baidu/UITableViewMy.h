@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface UITableViewMy : UITableView<UITableViewDelegate,UITableViewDataSource>
+#import "HttpGetData.h"
+@interface UITableViewMy : UITableView<UITableViewDelegate,UITableViewDataSource,ProcessBean>
 -(void)start:(BOOL)isShouYi;
 @end
 

@@ -7,11 +7,11 @@
 //
 #import "DataMake.h"
 #import "HttpGetData.h"
+#import "HttpTask.h"
 
 @implementation HttpGetData
-static bool isWebOk=YES;
 +(NSMutableArray*)getProducts{
-    NSArray* rtnJson =[HttpGetData doGet:@"http://107.170.199.9:9080/shop/j_products"];
+    NSArray* rtnJson =[HttpTask doGet:@"http://107.170.199.9:9080/shop/j_products"];
     if (rtnJson!=nil) {
         NSMutableArray* products = [NSMutableArray arrayWithCapacity:rtnJson.count];
         for (id json in rtnJson) {
@@ -25,7 +25,7 @@ static bool isWebOk=YES;
 }
 
 +(Home*) getHome{
-    id rtnJson = [HttpGetData doGet:@"http://107.170.199.9:9080/shop/j_home"];
+    id rtnJson = [HttpTask doGet:@"http://107.170.199.9:9080/shop/j_home"];
     if (rtnJson!=nil) {
         Home* home=[[Home alloc]initByJson:rtnJson];
         return home;
@@ -33,46 +33,25 @@ static bool isWebOk=YES;
         return [DataMake getHome];
     }
 }
-+(ShouYis*) getShouYi:(int) page{
++(void) getShouYi:(int) page :(id<ProcessBean>)processBean{
     NSString* url=[NSString stringWithFormat:@"http://107.170.199.9:9080/shop/j_shouyi?page=%d",page];
-    id rtnJson = [HttpGetData doGet:url];
-    if (rtnJson!=nil) {
-        ShouYis* home=[[ShouYis alloc]initByJson:rtnJson];
-        return home;
-    }else{
-        return nil;
-    }
+    
+    HttpTask* http=[HttpTask alloc];
+    [http exe:url addBean:[ShouYis alloc] addBean2:processBean];
 }
-+(ShouYis*) getZhang:(int) page{
++(void) getZhang:(int) page :(id<ProcessBean>)processBean{
     NSString* url=[NSString stringWithFormat:@"http://107.170.199.9:9080/shop/j_zhang?page=%d",page];
-    id rtnJson = [HttpGetData doGet:url];
-    if (rtnJson!=nil) {
-        ShouYis* home=[[ShouYis alloc]initByJson:rtnJson];
-        return home;
-    }else{
-        return nil;
-    }
+    
+    HttpTask* http=[HttpTask alloc];
+    [http exe:url addBean:[ShouYis alloc] addBean2:processBean];
 }
 
-+(id) doGet:(NSString*)url{
-    if (isWebOk) {
-        NSError *error;
-        //加载一个NSURL对象
-        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
-        //将请求的url数据放到NSData对象中
-        NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
-        if (response != nil && error == nil){
-            //IOS5自带解析类NSJSONSerialization从response中解析出数据放到字典中
-            id rtn = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-            if (rtn != nil && error == nil){
-                NSLog(@"rtn:%@",rtn);
-                return rtn;
-            }
-        }else{
-            NSLog(@"error1");
-            isWebOk=false;
-        }
-    }
-    return nil;
-}
+
 @end
+
+
+
+
+
+
+

@@ -28,23 +28,26 @@
     return self;
 }
 - (IBAction)clickTop:(id)sender{
-    if([sender tag]==10001){
-        isShouYiSelect=TRUE;
-        [[self TableViewShouyi] setHidden:NO];
-        [[self TableViewZhang] setHidden:YES];
-    }else{
-        isShouYiSelect=FALSE;
-        [[self TableViewZhang] setHidden:NO];
-        [[self TableViewShouyi] setHidden:YES];
+    switch([sender selectedSegmentIndex])
+    {
+        case 0:
+            isShouYiSelect=TRUE;
+            [[self TableViewShouyi] setHidden:NO];
+            [[self TableViewZhang] setHidden:YES];
+            break;
+        case 1:
+            isShouYiSelect=FALSE;
+            [[self TableViewZhang] setHidden:NO];
+            [[self TableViewShouyi] setHidden:YES];
+            break;
+        default:
+            NSLog(@"ccc");
+            break;
     }
 }
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    UIView * top=[[[NSBundle mainBundle]loadNibNamed:@"ViewMyTop" owner:nil options:nil]firstObject];
-    [((UIButton* )[top viewWithTag:10001]) addTarget:self action:@selector(clickTop:) forControlEvents:UIControlEventTouchUpInside];
-    [((UIButton* )[top viewWithTag:10002]) addTarget:self action:@selector(clickTop:) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.titleView=top;
     isShouYiSelect=YES;
     
     [[self TableViewShouyi] start:YES];

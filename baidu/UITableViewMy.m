@@ -106,7 +106,6 @@
         
         [tableFooterActivityIndicator startAnimating];
         [self _getData];
-        [self reloadData];
         
         _loadingMore = NO;
         //[tableFooterActivityIndicator stopAnimating];
@@ -115,7 +114,11 @@
 }
 
 
-
+- (void)exe:bean{
+    ShouYis* shouyi=bean;
+    [datas addObjectsFromArray:shouyi.shouYis];
+    [self reloadData];
+}
 
 
 
@@ -146,11 +149,9 @@
 }
 -(void)_getData{
     if(isShowYi){
-        ShouYis* shouyi=[HttpGetData getShouYi:page];
-        [datas addObjectsFromArray:shouyi.shouYis];
+        [HttpGetData getShouYi:page :self];
     }else{
-        ShouYis* shouyi=[HttpGetData getZhang:page];
-        [datas addObjectsFromArray:shouyi.shouYis];
+        [HttpGetData getZhang:page :self];
     }
 }
 
