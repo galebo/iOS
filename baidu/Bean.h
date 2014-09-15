@@ -13,7 +13,7 @@
 @end
 
 @protocol ProcessBean <NSObject>
-- (void)exe:(id)bean;
+- (void)onDataOk:(id)bean;
 @end
 
 @interface Product:NSObject

@@ -149,7 +149,7 @@ static bool isWebOk=YES;
     NSError *error;
     id weatherDic = [NSJSONSerialization JSONObjectWithData:weatherData options:NSJSONReadingMutableContainers error:&error];
     
-    [processBean exe:[string2Bean initByJson:weatherDic]];
+    [processBean onDataOk:[string2Bean initByJson:weatherDic]];
 }
 
 @end

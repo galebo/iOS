@@ -57,75 +57,18 @@
 }
 */
 -(void)start:(BOOL) _isShouYi{
-    
-    [self createTableFooter];
     isShowYi=_isShouYi;
     self.delegate=self;
     self.dataSource=self;
     page=1;
     datas=[[NSMutableArray alloc] init];
+    
+    [self createTableFooter];
     [self _getData];
 }
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    // Return the number of sections.
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    // Return the number of rows in the section.
-    
-    return datas.count;
-}
-
-
-
-
-
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
-{
-    // 下拉到最底部时显示更多数据
-    
-    if(!_loadingMore&& scrollView.contentOffset.y > ((scrollView.contentSize.height - scrollView.frame.size.height)))
-    {
-        [self loadDataBegin];
-    }
-}
-
-
-
-// 开始加载数据
-
-- (void) loadDataBegin{
-    
-    if (_loadingMore == NO) {
-        _loadingMore = YES;
-        
-        [tableFooterActivityIndicator startAnimating];
-        [self _getData];
-        
-        _loadingMore = NO;
-        //[tableFooterActivityIndicator stopAnimating];
-        //[self createTableFooter];
-    }
-}
-
-
-- (void)exe:bean{
-    ShouYis* shouyi=bean;
-    [datas addObjectsFromArray:shouyi.shouYis];
-    [self reloadData];
-}
-
-
 
 // 创建表格底部
-
-- (void) createTableFooter
-{
+- (void) createTableFooter{
     self.tableFooterView = nil;
     UIView *tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.bounds.size.width, 50.0f)];
     UILabel *loadMoreText = [[UILabel alloc] initWithFrame:CGRectMake(40.0f, 0.0f, 116.0f, 40.0f)];
@@ -142,12 +85,66 @@
 }
 
 
+#pragma mark - Table view data source start
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return datas.count;
+}
+#pragma mark - Table view data source end
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     ShouYiCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ShouYiCell" forIndexPath:indexPath];
     [cell initWithProduct:[datas objectAtIndex:indexPath.row]];
     return cell;
 }
+
+
+
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    if(!_loadingMore&& scrollView.contentOffset.y > ((scrollView.contentSize.height - scrollView.frame.size.height)))
+    {
+        [self loadDataBegin];
+    }
+}
+
+
+
+// 开始加载数据
+
+- (void) loadDataBegin{
+    
+    if (_loadingMore == NO) {
+        _loadingMore = YES;
+        
+        [self _getData];
+        
+        _loadingMore = NO;
+        //[self createTableFooter];
+    }
+}
+
+
+- (void)onDataOk:bean{
+    ShouYis* shouyi=bean;
+    [datas addObjectsFromArray:shouyi.shouYis];
+    [self reloadData];
+    [tableFooterActivityIndicator stopAnimating];
+}
+
+
+
+
+
 -(void)_getData{
+    [tableFooterActivityIndicator startAnimating];
     if(isShowYi){
         [HttpGetData getShouYi:page :self];
     }else{
