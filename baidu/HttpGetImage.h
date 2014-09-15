@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "HttpTask.h"
 
-@interface HttpGetImage : NSObject
+@interface HttpGetImage : NSObject<DataProcesser>
 
 -(void)get:(NSString*) url forButton:(UIButton*)image defaultImg:(NSString*) defaultImg;
 -(void)get:(NSString*) url forImage:(UIImageView*)image defaultImg:(NSString*) defaultImg;

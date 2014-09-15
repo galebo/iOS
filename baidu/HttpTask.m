@@ -13,9 +13,11 @@
 
 
 @interface HttpTask(){
-    NSMutableData*weatherData;
+    NSURLResponse* _response;
+    NSMutableData*_data;
     id<ProcessBean> processBean;
     id<String2Bean> string2Bean;
+    id<DataProcesser> _dataProcesser;
 }
 @end
 
@@ -44,9 +46,17 @@ static bool isWebOk=YES;
     }
     return nil;
 }
+- (void)exe:(NSString *)strURL addBean:(id<DataProcesser>) dataProcesser{
+    _dataProcesser= dataProcesser;
+    [self doGet:strURL];
+}
 - (void)exe:(NSString *)strURL addBean:(id<String2Bean>) _string2Bean addBean2:(id<ProcessBean>) _processBean{
     string2Bean=_string2Bean;
     processBean=_processBean;
+    [self doGet:strURL];
+}
+
+-(void)doGet:(NSString *)strURL{
     //创建URL
     NSURL *url = [[NSURL alloc] initWithString:strURL];
     
@@ -76,18 +86,15 @@ static bool isWebOk=YES;
     if (connection)
     {
         //此时才创建NSMutableData 的实例,是否已晚?下载已经异步开始了
-        if (!weatherData) {
-            weatherData = [NSMutableData data];
+        if (!_data) {
+            _data = [NSMutableData data];
         }
     }
     else
     {
         NSLog(@"创建网络连接失败!");
     }
-    
 }
-
-
 //当服务器提供了足够客户程序创建NSURLResponse对象的信息时，代理对象会收到
 //一个connection：didReceiveResponse：消息，在消息内可以检查NSURLResponse
 //对象和确定数据的预期长途，mime类型，文件名以及其他服务器提供的元信息
@@ -99,7 +106,8 @@ static bool isWebOk=YES;
 //反正当收到该信息就表示下载开始了(或者是重新开始了),把之前的数据清空即可
 -(void)connection:connection didReceiveResponse:(NSURLResponse *)response
 {
-    [weatherData setLength:0];
+    [_data setLength:0];
+    _response=response;
     //int expectedLength = [response expectedContentLength];  该方法可以获取将要下载的信息的大小(字节长度)
 }
 
@@ -109,7 +117,7 @@ static bool isWebOk=YES;
 //在下面的方法实现中，可以加入一个进度指示器，提示用户下载进度
 -(void)connection:connection didReceiveData:(NSData *)data
 {
-    [weatherData appendData:data];
+    [_data appendData:data];
     // [data length]; 表示每次接收的信息的大小(字节长度)
 }
 
@@ -133,23 +141,24 @@ static bool isWebOk=YES;
 //该消息之后代理不会再收到其他任何的消息了，在消息的实现中，应该释放掉连接
 - (void)connectionDidFinishLoading: (NSURLConnection *) connection
 {
-    //do something with the data
-    NSLog(@"succeeded %lu byte receive",(unsigned long)[weatherData length]);
-    //调用函数解析下载到的json格式的数据
-    [self readJsonData];
+    NSHTTPURLResponse*response=(NSHTTPURLResponse*)_response;
+    if(response.statusCode == 200){
+        if(processBean!=nil){
+            // NSJSONSerialization提供了将JSON数据转换为Foundation对象（一般都是NSDictionary和NSArray）
+            //和Foundation对象转换为JSON数据（可以通过调用isValidJSONObject来判断Foundation对象是否可以转换为JSON数据）。
+            
+            NSError *error;
+            id weatherDic = [NSJSONSerialization JSONObjectWithData:_data options:NSJSONReadingMutableContainers error:&error];
+            
+            [processBean onDataOk:[string2Bean initByJson:weatherDic]];
+        }else if(_dataProcesser!=nil){
+            [_dataProcesser process:_data];
+        }
+    }else{
+        NSLog(@"response.statusCode:%ld",response.statusCode);
+    }
+    //NSLog(@"succeeded %lu byte receive",(unsigned long)[_data length]);
 }
 
-
-//解析下载到的json格式的数据
-- (void)readJsonData
-{
-    // NSJSONSerialization提供了将JSON数据转换为Foundation对象（一般都是NSDictionary和NSArray）
-    //和Foundation对象转换为JSON数据（可以通过调用isValidJSONObject来判断Foundation对象是否可以转换为JSON数据）。
-    
-    NSError *error;
-    id weatherDic = [NSJSONSerialization JSONObjectWithData:weatherData options:NSJSONReadingMutableContainers error:&error];
-    
-    [processBean onDataOk:[string2Bean initByJson:weatherDic]];
-}
 
 @end

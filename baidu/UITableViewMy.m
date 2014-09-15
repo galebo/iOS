@@ -111,6 +111,7 @@
 {
     if(!_loadingMore&& scrollView.contentOffset.y > ((scrollView.contentSize.height - scrollView.frame.size.height)))
     {
+        page++;
         [self loadDataBegin];
     }
 }
