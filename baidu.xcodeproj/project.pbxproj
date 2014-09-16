@@ -29,8 +29,9 @@
 		9B42290619B1A0F700C1F582 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B4228E519B1A0F700C1F582 /* UIKit.framework */; };
 		9B42290E19B1A0F700C1F582 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9B42290C19B1A0F700C1F582 /* InfoPlist.strings */; };
 		9B42291019B1A0F700C1F582 /* baiduTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B42290F19B1A0F700C1F582 /* baiduTests.m */; };
+		9B4436E219C8272000557CF9 /* HttpTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4436E119C8272000557CF9 /* HttpTask.m */; };
+		9B4436E519C8284A00557CF9 /* UITableViewMy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4436E419C8284A00557CF9 /* UITableViewMy.m */; };
 		9B612BE919BE943300C5D310 /* ViewProFav.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B612BE819BE943300C5D310 /* ViewProFav.xib */; };
-		9B7E124819C1468500659D97 /* product_list_default_image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B7E124719C1468500659D97 /* product_list_default_image@2x.png */; };
 		9B7E124B19C15C8A00659D97 /* HttpGetImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7E124A19C15C8A00659D97 /* HttpGetImage.m */; };
 		9B7E124F19C15D4600659D97 /* DataMake.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7E124E19C15D4600659D97 /* DataMake.m */; };
 		9B7E125619C1825500659D97 /* SGFocusImageItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7E125519C1825500659D97 /* SGFocusImageItem.m */; };
@@ -46,10 +47,6 @@
 		9BC0287419C1DAD700C7BBDB /* HttpGetData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC0287319C1DAD700C7BBDB /* HttpGetData.m */; };
 		9BC0287719C1E0D200C7BBDB /* Bean.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC0287619C1E0D200C7BBDB /* Bean.m */; };
 		9BC06FB019B9E96D009060CF /* YYLockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC06FAF19B9E96D009060CF /* YYLockView.m */; };
-		9BC06FB519B9F880009060CF /* pattern_lock_dot_off_small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC06FB119B9F87F009060CF /* pattern_lock_dot_off_small@2x.png */; };
-		9BC06FB619B9F880009060CF /* pattern_lock_dot_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC06FB219B9F880009060CF /* pattern_lock_dot_off@2x.png */; };
-		9BC06FB719B9F880009060CF /* pattern_lock_dot_on_small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC06FB319B9F880009060CF /* pattern_lock_dot_on_small@2x.png */; };
-		9BC06FB819B9F880009060CF /* pattern_lock_dot_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC06FB419B9F880009060CF /* pattern_lock_dot_on@2x.png */; };
 		9BC06FBE19BADBF1009060CF /* ViewController2Lock.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC06FBD19BADBF1009060CF /* ViewController2Lock.m */; };
 		9BC06FC119BAF935009060CF /* ViewController2Pro.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC06FC019BAF935009060CF /* ViewController2Pro.m */; };
 		9BC06FC319BB08A1009060CF /* ViewPro.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BC06FC219BB08A0009060CF /* ViewPro.xib */; };
@@ -100,8 +97,11 @@
 		9B42290B19B1A0F700C1F582 /* baiduTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "baiduTests-Info.plist"; sourceTree = "<group>"; };
 		9B42290D19B1A0F700C1F582 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9B42290F19B1A0F700C1F582 /* baiduTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = baiduTests.m; sourceTree = "<group>"; };
+		9B4436E019C8272000557CF9 /* HttpTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpTask.h; sourceTree = "<group>"; };
+		9B4436E119C8272000557CF9 /* HttpTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpTask.m; sourceTree = "<group>"; };
+		9B4436E319C8284A00557CF9 /* UITableViewMy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITableViewMy.h; sourceTree = "<group>"; };
+		9B4436E419C8284A00557CF9 /* UITableViewMy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITableViewMy.m; sourceTree = "<group>"; };
 		9B612BE819BE943300C5D310 /* ViewProFav.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewProFav.xib; sourceTree = "<group>"; };
-		9B7E124719C1468500659D97 /* product_list_default_image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "product_list_default_image@2x.png"; path = "../../../百度理财 1.5.2/product_list_default_image@2x.png"; sourceTree = "<group>"; };
 		9B7E124919C15C8A00659D97 /* HttpGetImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpGetImage.h; sourceTree = "<group>"; };
 		9B7E124A19C15C8A00659D97 /* HttpGetImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpGetImage.m; sourceTree = "<group>"; };
 		9B7E124D19C15D4600659D97 /* DataMake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataMake.h; sourceTree = "<group>"; };
@@ -133,10 +133,6 @@
 		9BC0287619C1E0D200C7BBDB /* Bean.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bean.m; sourceTree = "<group>"; };
 		9BC06FAE19B9E96D009060CF /* YYLockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYLockView.h; sourceTree = "<group>"; };
 		9BC06FAF19B9E96D009060CF /* YYLockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYLockView.m; sourceTree = "<group>"; };
-		9BC06FB119B9F87F009060CF /* pattern_lock_dot_off_small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pattern_lock_dot_off_small@2x.png"; path = "../../../百度理财 1.5.2/pattern_lock_dot_off_small@2x.png"; sourceTree = "<group>"; };
-		9BC06FB219B9F880009060CF /* pattern_lock_dot_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pattern_lock_dot_off@2x.png"; path = "../../../百度理财 1.5.2/pattern_lock_dot_off@2x.png"; sourceTree = "<group>"; };
-		9BC06FB319B9F880009060CF /* pattern_lock_dot_on_small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pattern_lock_dot_on_small@2x.png"; path = "../../../百度理财 1.5.2/pattern_lock_dot_on_small@2x.png"; sourceTree = "<group>"; };
-		9BC06FB419B9F880009060CF /* pattern_lock_dot_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pattern_lock_dot_on@2x.png"; path = "../../../百度理财 1.5.2/pattern_lock_dot_on@2x.png"; sourceTree = "<group>"; };
 		9BC06FBC19BADBF1009060CF /* ViewController2Lock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController2Lock.h; sourceTree = "<group>"; };
 		9BC06FBD19BADBF1009060CF /* ViewController2Lock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController2Lock.m; sourceTree = "<group>"; };
 		9BC06FBF19BAF935009060CF /* ViewController2Pro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController2Pro.h; sourceTree = "<group>"; };
@@ -224,6 +220,8 @@
 		9B4228E719B1A0F700C1F582 /* baidu */ = {
 			isa = PBXGroup;
 			children = (
+				9B4436E319C8284A00557CF9 /* UITableViewMy.h */,
+				9B4436E419C8284A00557CF9 /* UITableViewMy.m */,
 				9B4228F019B1A0F700C1F582 /* AppDelegate.h */,
 				9B4228F119B1A0F700C1F582 /* AppDelegate.m */,
 				9BC0286E19C1C9FC00C7BBDB /* xib */,
@@ -260,13 +258,8 @@
 		9B4228E819B1A0F700C1F582 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				9B7E124719C1468500659D97 /* product_list_default_image@2x.png */,
 				9BE352D319B43F93008B4467 /* backup */,
 				9B4228FC19B1A0F700C1F582 /* Images.xcassets */,
-				9BC06FB119B9F87F009060CF /* pattern_lock_dot_off_small@2x.png */,
-				9BC06FB219B9F880009060CF /* pattern_lock_dot_off@2x.png */,
-				9BC06FB319B9F880009060CF /* pattern_lock_dot_on_small@2x.png */,
-				9BC06FB419B9F880009060CF /* pattern_lock_dot_on@2x.png */,
 				9B39516C19B56C4600E79131 /* focus_image */,
 				9B4228E919B1A0F700C1F582 /* baidu-Info.plist */,
 				9B4228EA19B1A0F700C1F582 /* InfoPlist.strings */,
@@ -297,6 +290,8 @@
 		9B7E124C19C15C8F00659D97 /* http */ = {
 			isa = PBXGroup;
 			children = (
+				9B4436E019C8272000557CF9 /* HttpTask.h */,
+				9B4436E119C8272000557CF9 /* HttpTask.m */,
 				9B7E124919C15C8A00659D97 /* HttpGetImage.h */,
 				9B7E124A19C15C8A00659D97 /* HttpGetImage.m */,
 			);
@@ -449,17 +444,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BC06FC319BB08A1009060CF /* ViewPro.xib in Resources */,
-				9BC06FB819B9F880009060CF /* pattern_lock_dot_on@2x.png in Resources */,
 				9BE8CC3719C2F79200703B12 /* ViewMyTop.xib in Resources */,
-				9B7E124819C1468500659D97 /* product_list_default_image@2x.png in Resources */,
 				9B612BE919BE943300C5D310 /* ViewProFav.xib in Resources */,
 				9BE352D219B43765008B4467 /* bakeup.storyboard in Resources */,
-				9BC06FB619B9F880009060CF /* pattern_lock_dot_off@2x.png in Resources */,
 				9B39517C19B5808200E79131 /* banner3.png in Resources */,
 				9B39517A19B5808200E79131 /* banner1.png in Resources */,
-				9BC06FB719B9F880009060CF /* pattern_lock_dot_on_small@2x.png in Resources */,
 				9B4228FD19B1A0F700C1F582 /* Images.xcassets in Resources */,
-				9BC06FB519B9F880009060CF /* pattern_lock_dot_off_small@2x.png in Resources */,
 				9B4228EC19B1A0F700C1F582 /* InfoPlist.strings in Resources */,
 				9B39517B19B5808200E79131 /* banner2.png in Resources */,
 				9BC0283019BEFDE900BB5766 /* ViewProMy.xib in Resources */,
@@ -497,10 +487,12 @@
 				9B4228F219B1A0F700C1F582 /* AppDelegate.m in Sources */,
 				9B39516F19B56CA900E79131 /* ViewControllerFav.m in Sources */,
 				9BC0282919BEF80000BB5766 /* SHLineGraphView.m in Sources */,
+				9B4436E519C8284A00557CF9 /* UITableViewMy.m in Sources */,
 				9B27A0FA19B401CE0000B49E /* ViewControllerMore.m in Sources */,
 				9B4228F819B1A0F700C1F582 /* MoreViewController.m in Sources */,
 				9B39517519B5797F00E79131 /* SGFocusImageFrame.m in Sources */,
 				9B7E124B19C15C8A00659D97 /* HttpGetImage.m in Sources */,
+				9B4436E219C8272000557CF9 /* HttpTask.m in Sources */,
 				9BC06FC119BAF935009060CF /* ViewController2Pro.m in Sources */,
 				9BC0282A19BEF80000BB5766 /* SHPlot.m in Sources */,
 				9BC0282E19BEFD5400BB5766 /* ViewController2My.m in Sources */,
