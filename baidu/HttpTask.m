@@ -155,7 +155,7 @@ static bool isWebOk=YES;
             [_dataProcesser process:_data];
         }
     }else{
-        NSLog(@"response.statusCode:%ld",response.statusCode);
+        NSLog(@"response.statusCode:%ld",(long)response.statusCode);
     }
     //NSLog(@"succeeded %lu byte receive",(unsigned long)[_data length]);
 }
