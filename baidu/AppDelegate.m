@@ -129,17 +129,17 @@
     [[UINavigationBar appearance] setTintColor:fontColor];
     
     NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:
-                         [UIColor whiteColor],UITextAttributeTextColor,
-                         [UIColor whiteColor],UITextAttributeTextShadowColor,nil];
+                         [UIColor whiteColor],NSForegroundColorAttributeName,
+                         [UIColor whiteColor],NSShadowAttributeName,nil];
     [[UISegmentedControl appearance] setTitleTextAttributes:dic forState:UIControlStateSelected];
     NSDictionary *dic2 = [NSDictionary dictionaryWithObjectsAndKeys:
-                         [UIColor whiteColor],UITextAttributeTextColor,
-                         [UIColor whiteColor],UITextAttributeTextShadowColor,nil];
+                         [UIColor whiteColor],NSForegroundColorAttributeName,
+                         [UIColor whiteColor],NSShadowAttributeName,nil];
     [[UISegmentedControl appearance] setTitleTextAttributes:dic2 forState:UIControlStateNormal];
     [[UISegmentedControl appearance] setTintColor:[UIColor colorWithRed:179.0/255.0 green:28.0/255.0 blue:18.0/255.0 alpha:1.0]];
     
     products=[HttpGetData getProducts];
-    isShow=YES;
+    isShow=NO;
     return YES;
 }
 							
