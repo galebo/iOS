@@ -24,11 +24,14 @@
 #import "PopoverView.h"
 #import "SHPlot.h"
 #import <math.h>
+#import <objc/runtime.h>
+
 #define BOTTOM_MARGIN_TO_LEAVE 30.0
 #define TOP_MARGIN_TO_LEAVE 30.0
 #define INTERVAL_COUNT 9
 #define PLOT_WIDTH (self.bounds.size.width - _leftMarginToLeave)
 
+#define kAssociatedPlotObject @"kAssociatedPlotObject"
 
 
 @implementation SHLineGraphView
