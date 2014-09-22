@@ -24,14 +24,11 @@
 #import "PopoverView.h"
 #import "SHPlot.h"
 #import <math.h>
-#import <objc/runtime.h>
-
 #define BOTTOM_MARGIN_TO_LEAVE 30.0
 #define TOP_MARGIN_TO_LEAVE 30.0
 #define INTERVAL_COUNT 9
 #define PLOT_WIDTH (self.bounds.size.width - _leftMarginToLeave)
 
-#define kAssociatedPlotObject @"kAssociatedPlotObject"
 
 
 @implementation SHLineGraphView
@@ -188,7 +185,7 @@
   CGPathMoveToPoint(graphPath, NULL, _leftMarginToLeave, plot.xPoints[0].y);
   CGPathMoveToPoint(backgroundPath, NULL, _leftMarginToLeave, plot.xPoints[0].y);
   
-  int count = _xAxisValues.count;
+  unsigned long count = _xAxisValues.count;
   for(int i=0; i< count; i++){
     CGPoint point = plot.xPoints[i];
     CGPathAddLineToPoint(graphPath, NULL, point.x, point.y);
@@ -239,7 +236,7 @@
 }
 
 - (void)drawXLabels:(SHPlot *)plot {
-  int xIntervalCount = _xAxisValues.count;
+  unsigned long xIntervalCount = _xAxisValues.count;
   double xIntervalInPx = PLOT_WIDTH / _xAxisValues.count;
   
   //initialize actual x points values where the circle will be
