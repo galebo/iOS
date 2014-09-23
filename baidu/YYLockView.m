@@ -194,7 +194,7 @@
     CGContextSetLineWidth(ctx, 10);
     CGContextSetLineJoin(ctx, kCGLineJoinRound);
     CGContextSetLineCap(ctx, kCGLineCapRound);
-    CGContextSetRGBStrokeColor(ctx, 20/255.0, 107/255.0, 153/255.0, 1);
+    CGContextSetRGBStrokeColor(ctx, 252/255.0, 229/255.0, 110/255.0, 1);
     CGContextStrokePath(ctx);
 }
 @end
