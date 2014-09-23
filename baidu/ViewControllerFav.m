@@ -39,6 +39,11 @@
     AppDelegate *app = [[UIApplication sharedApplication]delegate];
     Product* product=[app.products objectAtIndex:0];
     [proView init:product withNib:@"ViewProFav" x:0];
+    if ([UIScreen mainScreen].bounds.size.height<481) {
+        UIScrollView* sv=(UIScrollView*) self.view;
+        [sv setContentSize:CGSizeMake(320, 480)];
+        [sv setContentOffset:CGPointMake(0, 300) animated:YES] ;
+    }
 	// Do any additional setup after loading the view, typically from a nib.
     
 }
